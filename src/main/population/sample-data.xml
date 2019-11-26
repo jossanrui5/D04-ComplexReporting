@@ -80,8 +80,40 @@
 	</bean>
 	
 	
+	<!-- Employers -->
 	
-	
+	<bean name="employer1UserAccount" class="acme.framework.entities.UserAccount">
+        <property name="username" value="employer1" />
+        <property name="password" value="employer1" />
+        <property name="enabled" value="true" />
+        <property name="identity">
+            <bean class="acme.datatypes.UserIdentity">
+                <property name="name" value="Employer" />
+                <property name="surname" value="One" />
+                <property name="email" value="employer1@acme.com" />
+            </bean>
+        </property>
+        <property name="roles">
+            <list>
+                <ref bean="employer1Employer" />
+                <ref bean="employer1Authenticated" />
+            </list>
+        </property>
+    </bean>
+    
+    <bean name="employer1Employer" class="acme.entities.roles.Employer">
+    	<property name="company" value="Employer I, Inc." />
+    	<property name="sector" value="Sector I" />
+    	<property name="userAccount" ref="employer1UserAccount" />
+    </bean>
+    
+    <bean name="employer1Authenticated" class="acme.framework.entities.Authenticated">
+    	<property name="userAccount" ref="employer1UserAccount" />
+    </bean>
+    
+   
+
+	<!-- Rewards -->
 
 	<bean id="reward01" class="acme.framework.datatypes.Money">
 		<property name="amount" value="1000" />
@@ -97,6 +129,30 @@
 		<property name="amount" value="3000" />
 		<property name="currency" value="€" />
 	</bean>
+	
+	<!-- Jobs -->
+    
+    <bean name="job01" class="acme.entities.jobs.Job">
+    	<property name="reference" value="EMP1-JOB1" />
+    	<property name="title" value="Title 1" />
+    	<property name="deadline" value="2030/12/12 23:00" />
+    	<property name="salary" ref="reward01" />
+    	<property name="description" value="Description" />
+    	<property name="moreInfo" value="http://www.example.com" />
+    	<property name="finalMode" value="true" />
+    	<property name="employer" ref="employer1Employer" />
+    </bean>
+    
+    <bean name="job02" class="acme.entities.jobs.Job">
+    	<property name="reference" value="EMP1-JOB2" />
+    	<property name="title" value="Title 2" />
+    	<property name="deadline" value="2030/12/12 23:00" />
+    	<property name="salary" ref="reward02" />
+    	<property name="description" value="Description" />
+    	<property name="moreInfo" value="http://www.example.com" />
+    	<property name="finalMode" value="true" />
+    	<property name="employer" ref="employer1Employer" />
+    </bean>
 
 
 	<!-- Challenges -->
