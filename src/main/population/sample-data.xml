@@ -193,27 +193,42 @@
 		<property name="rewardBronze" ref="reward01" />
 	</bean>
 	
+	
+	
+	
 	<!-- Commercial Banners -->
 
 	<bean id="cbanner01" class="acme.entities.banners.CommercialBanner">
 		<property name="picture" value="http://picture.com" />
 		<property name="slogan" value="Slogaaan!" />
 		<property name="url" value="http://url.com" />
-		<property name="creditCard" value="5122658736590257" />
+		<property name="creditcardholder" value="Luis Díaz Gonzalez" />
+		<property name="creditcardbrand" value="Visa" />
+		<property name="creditcarddeadline" value="09/23"/>
+		<property name="creditcardnumber" value="5122658736590257" />
+		<property name="creditcardcvv" value="332" />
 	</bean>
 
 	<bean id="cbanner02" class="acme.entities.banners.CommercialBanner">
 		<property name="picture" value="http://picturepicture.com" />
 		<property name="slogan" value="Slogan!" />
 		<property name="url" value="http://urlurl.com" />
-		<property name="creditCard" value="5527456736590257" />
+		<property name="creditcardholder" value="Lucía Martín Veloso" />
+		<property name="creditcardbrand" value="Visa" />
+		<property name="creditcarddeadline" value="03/26"/>
+		<property name="creditcardnumber" value="5527456736590257" />
+		<property name="creditcardcvv" value="2545" />
 	</bean>
 
 	<bean id="cbanner03" class="acme.entities.banners.CommercialBanner">
 		<property name="picture" value="http://pictures.com" />
 		<property name="slogan" value="Slogaaan again!" />
 		<property name="url" value="http://urls.com" />
-		<property name="creditCard" value="5137984536590257" />
+		<property name="creditcardholder" value="Amanda Rios Ruiz" />
+		<property name="creditcardbrand" value="MasterCard" />
+		<property name="creditcarddeadline" value="03/26"/>
+		<property name="creditcardnumber" value="5137984536590257" />
+		<property name="creditcardcvv" value="254" />
 	</bean>
 	
 	

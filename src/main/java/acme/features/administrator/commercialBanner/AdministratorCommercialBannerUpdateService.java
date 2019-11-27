@@ -1,6 +1,11 @@
 
 package acme.features.administrator.commercialBanner;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -44,7 +49,7 @@ public class AdministratorCommercialBannerUpdateService implements AbstractUpdat
 		assert entity != null;
 		assert model != null;
 
-		request.unbind(entity, model, "picture", "url", "slogan", "creditCard");
+		request.unbind(entity, model, "picture", "url", "slogan");
 	}
 
 	@Override
@@ -66,6 +71,38 @@ public class AdministratorCommercialBannerUpdateService implements AbstractUpdat
 		assert request != null;
 		assert entity != null;
 		assert errors != null;
+
+		if (!errors.hasErrors("creditcarddeadline")) {
+			errors.state(request, request.getModel().getString("creditcarddeadline") != null, "creditcarddeadline", "administrator.commercial-banner.form.error.deadlineIncorrect");
+		}
+
+		if (!errors.hasErrors("creditcarddeadline")) {
+			errors.state(request, request.getModel().getString("creditcarddeadline").matches("^(0[1-9]|1[0-2])\\/[0-9][0-9]$"), "creditcarddeadline", "administrator.commercial-banner.form.error.deadlinePattern");
+		}
+
+		if (!errors.hasErrors("creditcarddeadline")) {
+			Date currentDate = new Date(System.currentTimeMillis());
+
+			String[] monthYear = request.getModel().getString("creditcarddeadline").split("/");
+			String deadlineString = monthYear[0] + "/20" + monthYear[1];
+			Date deadline = new Date();
+
+			try {
+				deadline = new SimpleDateFormat("MM/yyyy").parse(deadlineString);
+			} catch (ParseException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+
+			Calendar calendar = Calendar.getInstance();
+			calendar.setTime(deadline);
+
+			calendar.add(Calendar.HOUR, 1);
+
+			deadline = calendar.getTime();
+
+			errors.state(request, deadline.after(currentDate), "creditcarddeadline", "administrator.commercial-banner.form.error.deadline");
+		}
 
 	}
 
