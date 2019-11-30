@@ -30,6 +30,7 @@ master.menu.sign-out = Salir
 
 master.menu.authenticated = Autentificado
 
+master.menu.authenticated.listMessageThread = Mis Cadenas de Mensaje
 master.menu.authenticated.listAnnouncement = Anuncios
 master.menu.authenticated.listChallenge = Retos
 master.menu.authenticated.listCompaniesRecord = Registro de Companias

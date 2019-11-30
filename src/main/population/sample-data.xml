@@ -34,7 +34,27 @@
         <property name="userAccount" ref="consumerUserAccount" />
     </bean>
     
-    
+    <bean name="consumerUserAccount02" class="acme.framework.entities.UserAccount">
+        <property name="username" value="consumer02" />
+        <property name="password" value="consumer02" />
+        <property name="enabled" value="true" />
+        <property name="identity">
+            <bean class="acme.datatypes.UserIdentity">
+                <property name="name" value="Josefa" />
+                <property name="surname" value="Camacha" />
+                <property name="email" value="josefa.camacha@acme.com" />
+            </bean>
+        </property>
+        <property name="roles">
+            <list>
+                <ref bean="consumerConsumer" />
+            </list>
+        </property>
+    </bean>
+
+    <bean name="consumerConsumer02" class="acme.framework.entities.Authenticated">
+        <property name="userAccount" ref="consumerUserAccount02" />
+    </bean>
     
     <bean name="providerUserAccount" class="acme.framework.entities.UserAccount">
         <property name="username" value="provider" />
@@ -66,6 +86,14 @@
 		<property name="sector" value="Alimentacion" />
 		<property name="userAccount">
 			<ref bean="consumerUserAccount" />
+		</property>
+	</bean>
+	
+	<bean id="consumer02" class="acme.entities.roles.Consumer">
+		<property name="company" value="Company Two" />
+		<property name="sector" value="Ropa" />
+		<property name="userAccount">
+			<ref bean="consumerUserAccount02" />
 		</property>
 	</bean>
 	
@@ -509,6 +537,59 @@
 		<property name="name" value="Julio" />
 		<property name="surname" value="Lopez" />
 		<property name="IdCode" value="44242997P" />
+	</bean>
+	
+	<!-- 	Messages   -->
+	
+	<bean id="userThread01" class="acme.entities.userThread.UserThread">
+		<property name="authenticated" ref="providerProvider"/>
+		<property name="messageThread" ref="messageThread1"/>
+	</bean>
+	
+	<bean id="userThread02" class="acme.entities.userThread.UserThread">
+		<property name="authenticated" ref="consumerConsumer"/>
+		<property name="messageThread" ref="messageThread1"/>
+	</bean>
+	
+	<bean id="messageThread1" class="acme.entities.messageThread.MessageThread">
+		<property name="title" value="Title1" />
+		<property name="starter" ref="consumerConsumer02"/>
+<!-- 		<property name="userThreads"> -->
+<!-- 			<list> -->
+<!-- 				<ref bean="userThread01"/> -->
+<!-- 				<ref bean="userThread02"/> -->
+<!-- 			</list> -->
+<!-- 		</property> -->
+	</bean>
+	
+	<bean id="message1" class="acme.entities.message.Message">
+		<property name="title" value="Message 1" />
+		<property name="body" value="Body of message 1" />
+		<property name="messageThread" ref="messageThread1" />
+	</bean>
+	
+	<bean id="message2" class="acme.entities.message.Message">
+		<property name="title" value="Message 2" />
+		<property name="body" value="Body of message 2" />
+		<property name="messageThread" ref="messageThread1" />
+	</bean>
+	
+	<bean id="message3" class="acme.entities.message.Message">
+		<property name="title" value="Message 3" />
+		<property name="body" value="Body of message 3" />
+		<property name="messageThread" ref="messageThread1" />
+	</bean>
+	
+	<bean id="message4" class="acme.entities.message.Message">
+		<property name="title" value="Message 4" />
+		<property name="body" value="Body of message 4" />
+		<property name="messageThread" ref="messageThread1" />
+	</bean>
+	
+	<bean id="message5" class="acme.entities.message.Message">
+		<property name="title" value="Message5" />
+		<property name="body" value="Body of message 5" />
+		<property name="messageThread" ref="messageThread1" />
 	</bean>
 
 </beans>
