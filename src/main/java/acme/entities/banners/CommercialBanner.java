@@ -34,7 +34,20 @@ public class CommercialBanner extends DomainEntity {
 	private String				slogan;
 
 	@NotBlank
+	private String				creditcardholder;
+
+	@NotBlank
+	private String				creditcardbrand;
+
+	@NotBlank
+	private String				creditcarddeadline;
+
+	@NotBlank
 	@Pattern(regexp = "5[1-5][0-9]{14}$")
-	private String				creditCard;
+	private String				creditcardnumber;
+
+	@NotBlank
+	@Pattern(regexp = "^\\d{3,4}$")
+	private String				creditcardcvv;
 
 }

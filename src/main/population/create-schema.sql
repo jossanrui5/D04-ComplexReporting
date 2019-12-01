@@ -60,7 +60,11 @@
     create table `commercial_banner` (
        `id` integer not null,
         `version` integer not null,
-        `credit_card` varchar(255),
+        `creditcardbrand` varchar(255),
+        `creditcardcvv` varchar(255),
+        `creditcarddeadline` varchar(255),
+        `creditcardholder` varchar(255),
+        `creditcardnumber` varchar(255),
         `picture` varchar(255),
         `slogan` varchar(255),
         `url` varchar(255),
