@@ -540,6 +540,7 @@ Worker
 --
 +company: String {NotBlank}
 +sector: String {NotBlank}</panel_attributes>
+
     <additional_attributes/>
   </element>
   <element>
