@@ -547,6 +547,49 @@
 		<property name="minMoney" ref="reward01" />
 		<property name="info" value="This is the info for the sample offer 01" />
 	</bean>
+	
+	<!-- Audit Records -->
+
+	<bean id="AuditRecord01" class="acme.entities.auditRecors.AuditRecords">
+		<property name="title" value="audit record 1" />
+		<property name="moreInfo" value="false" />
+		<property name="moment" value="2019/09/09 10:00" />
+		<property name="body" value="body test 1" />
+		<property name="job">
+			<ref bean="job01"/>
+		</property>
+		<property name="auditor">
+			<ref bean="auditor01"/>
+		</property>
+	</bean>
+	
+	<bean id="AuditRecord02" class="acme.entities.auditRecors.AuditRecords">
+		<property name="title" value="audit record 2" />
+		<property name="moreInfo" value="true" />
+		<property name="moment" value="2019/07/23 15:00" />
+		<property name="body" value="body test 2" />
+		<property name="job">
+			<ref bean="job01"/>
+		</property>
+		<property name="auditor">
+			<ref bean="auditor01"/>
+		</property>
+	</bean>
+	
+	
+	<bean id="AuditRecord03" class="acme.entities.auditRecors.AuditRecords">
+		<property name="title" value="audit record 3" />
+		<property name="moreInfo" value="false" />
+		<property name="moment" value="2019/08/11 22:00" />
+		<property name="body" value="body test 3" />
+		<property name="job">
+			<ref bean="job02"/>
+		</property>
+		<property name="auditor">
+			<ref bean="auditor01"/>
+		</property>
+	</bean>
+	
 
 	<!-- Bulletins -->
 
