@@ -23,6 +23,15 @@
         primary key (`id`)
     ) engine=InnoDB;
 
+    create table `auditor` (
+       `id` integer not null,
+        `version` integer not null,
+        `user_account_id` integer,
+        `firm` varchar(255),
+        `responsibility_statement` varchar(255),
+        primary key (`id`)
+    ) engine=InnoDB;
+
     create table `authenticated` (
        `id` integer not null,
         `version` integer not null,
@@ -257,6 +266,11 @@ create index IDX6075l7l7ajup0b22keibg4bil on `request_entity` (`deadline`);
 
     alter table `anonymous` 
        add constraint FK_6lnbc6fo3om54vugoh8icg78m 
+       foreign key (`user_account_id`) 
+       references `user_account` (`id`);
+
+    alter table `auditor` 
+       add constraint FK_clqcq9lyspxdxcp6o4f3vkelj 
        foreign key (`user_account_id`) 
        references `user_account` (`id`);
 
