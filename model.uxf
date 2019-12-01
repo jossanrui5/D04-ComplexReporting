@@ -530,60 +530,72 @@ GamezBulletin
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1029</x>
-      <y>364</y>
+      <x>770</x>
+      <y>273</y>
       <w>140</w>
-      <h>63</h>
+      <h>56</h>
     </coordinates>
     <panel_attributes>&lt;&lt;Role&gt;&gt;
-Employer
+Worker
 --
-+ company: String {NotBlank}
-+ sector: String {NotBlank}</panel_attributes>
++company: String {NotBlank}
++sector: String {NotBlank}</panel_attributes>
+
     <additional_attributes/>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>581</x>
+      <x>595</x>
       <y>203</y>
-      <w>462</w>
-      <h>203</h>
+      <w>189</w>
+      <h>84</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
-    <additional_attributes>10.0;10.0;590.0;210.0;640.0;270.0</additional_attributes>
+    <additional_attributes>10.0;10.0;250.0;100.0</additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1316</x>
-      <y>336</y>
-      <w>252</w>
-      <h>119</h>
+      <x>1036</x>
+      <y>266</y>
+      <w>315</w>
+      <h>91</h>
     </coordinates>
-    <panel_attributes>Job
+    <panel_attributes>Application
 --
-+ reference: String{Unique, NotBlank, Length(min=5,max=10)}
-+ title: String{NotBlank}
-+ deadline: String{NotBlank, Temporal(TIMESTAMP)},
-+ salary: Money{NotBull, Valid}
-+ description: String{NotBlank}
-+ moreInfo: String{URL}
-+ finalMode: boolean</panel_attributes>
++ referenceNumber: String{Unique, NotBlank, Length(min=5,max=15)}
++ moment: Date(Temporal(TIMESTAMP),Past)
++ statement: String(NotBlank)
++ skills: String(NotBlank)
++ qualifications: String(NotBlank)
++ finalMode: boolean
+</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1162</x>
-      <y>378</y>
-      <w>168</w>
-      <h>35</h>
+      <x>903</x>
+      <y>287</y>
+      <w>147</w>
+      <h>28</h>
     </coordinates>
-    <panel_attributes>lt=&lt;-x
+    <panel_attributes>lt=&lt;-
 m1=1
-m2=0..*
-&lt; Registered by</panel_attributes>
-    <additional_attributes>10.0;20.0;220.0;20.0</additional_attributes>
+m2=0..*</panel_attributes>
+    <additional_attributes>10.0;10.0;190.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Text</id>
+    <coordinates>
+      <x>938</x>
+      <y>273</y>
+      <w>70</w>
+      <h>21</h>
+    </coordinates>
+    <panel_attributes>registered by
+style=wordwrap</panel_attributes>
+    <additional_attributes/>
   </element>
 </diagram>
