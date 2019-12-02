@@ -18,4 +18,7 @@ public interface EmployerJobRepository extends AbstractRepository {
 	@Query("select j from Job j where j.employer.id = ?1")
 	Collection<Job> findManyByEmployerId(int employerId);
 
+	@Query("select j from Job j where j.final_mode = 1")
+	Collection<Job> findManyByStatus();
+
 }

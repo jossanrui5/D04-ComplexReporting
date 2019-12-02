@@ -139,6 +139,13 @@
     	<property name="salary" ref="reward01" />
     	<property name="description" value="Description" />
     	<property name="moreInfo" value="http://www.example.com" />
+    	<property name="duties"> 
+			<list>
+				<ref bean="duty01"/>
+				<ref bean="duty02"/>
+				<ref bean="duty03"/>
+			</list>
+		</property>
     	<property name="finalMode" value="true" />
     	<property name="employer" ref="employer1Employer" />
     </bean>
@@ -150,8 +157,41 @@
     	<property name="salary" ref="reward02" />
     	<property name="description" value="Description" />
     	<property name="moreInfo" value="http://www.example.com" />
+    	<property name="duties"> 
+			<list>
+				<ref bean="duty04"/>
+			</list>
+		</property>
     	<property name="finalMode" value="true" />
     	<property name="employer" ref="employer1Employer" />
+    </bean>
+    
+     <bean name="duty01" class="acme.entities.duty.Duty">
+    	<property name="title" value="Title duty01"/>
+    	<property name="description" value="Description duty01"/>
+    	<property name="timexWeek" value="10.50"/>
+    	<property name="job" ref="job01"/>
+    </bean>
+    
+    <bean name="duty02" class="acme.entities.duty.Duty">
+    	<property name="title" value="Title duty02"/>
+    	<property name="description" value="Description duty02"/>
+    	<property name="timexWeek" value="12.50"/>
+    	<property name="job" ref="job01"/>
+    </bean>
+    
+     <bean name="duty03" class="acme.entities.duty.Duty">
+    	<property name="title" value="Title duty03"/>
+    	<property name="description" value="Description duty03"/>
+    	<property name="timexWeek" value="14.50"/>
+    	<property name="job" ref="job01"/>
+    </bean>
+    
+     <bean name="duty04" class="acme.entities.duty.Duty">
+    	<property name="title" value="Title duty04"/>
+    	<property name="description" value="Description duty04"/>
+    	<property name="timexWeek" value="16.50"/>
+    	<property name="job" ref="job02"/>
     </bean>
 
 
