@@ -5,9 +5,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entities.jobs.Job;
+
 import acme.framework.components.Model;
 import acme.framework.components.Request;
 import acme.framework.entities.Authenticated;
+
 import acme.framework.services.AbstractShowService;
 
 @Service
@@ -26,6 +28,7 @@ public class AuthenticatedJobShowService implements AbstractShowService<Authenti
 		assert request != null;
 
 		return true;
+
 	}
 
 	@Override

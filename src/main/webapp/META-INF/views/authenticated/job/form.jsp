@@ -17,13 +17,16 @@
 
 <acme:form>
 	<acme:form-textbox code="authenticated.job.form.label.reference" path="reference"/>
+
 	<acme:form-checkbox code="authenticated.job.form.label.status" path="finalMode"/>
+
 	<acme:form-textbox code="authenticated.job.form.label.title" path="title"/>
 	<acme:form-moment code="authenticated.job.form.label.deadline" path="deadline"/>
 	<acme:form-money code="authenticated.job.form.label.salary" path="salary"/>
 	<acme:form-url code="authenticated.job.form.label.moreInfo" path="moreInfo"/>
 	<acme:form-textarea code="authenticated.job.form.label.description" path="description"/>
 	
+
 	<p id="duties"></p>
 	<acme:form-return code="authenticated.job.form.button.return"/>
 	
@@ -33,6 +36,7 @@
             document.getElementById("duties").innerHTML = submit;
         });
     </script>
+
 	
 </acme:form>
 

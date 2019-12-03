@@ -7,6 +7,19 @@
        drop 
        foreign key FK_6lnbc6fo3om54vugoh8icg78m;
 
+
+    alter table `application` 
+       drop 
+       foreign key `FKoa6p4s2oyy7tf80xwc4r04vh6`;
+
+    alter table `application` 
+       drop 
+       foreign key `FKmbjdoxi3o93agxosoate4sxbt`;
+
+    alter table `auditor` 
+       drop 
+       foreign key FK_clqcq9lyspxdxcp6o4f3vkelj;
+
     alter table `authenticated` 
        drop 
        foreign key FK_h52w0f3wjoi68b63wv9vwon57;
@@ -23,15 +36,42 @@
        drop 
        foreign key `FK3rxjf8uh6fh2u990pe8i2at0e`;
 
+
+    alter table `message` 
+       drop 
+       foreign key `FKn5adlx3oqjna7aupm8gwg3fuj`;
+
+    alter table `message_thread` 
+       drop 
+       foreign key `FKadu47h7h56fegmk27oo1qd1fb`;
+
     alter table `provider` 
        drop 
        foreign key FK_b1gwnjqm6ggy9yuiqm0o4rlmd;
+
+    alter table `user_thread` 
+       drop 
+       foreign key `FKp4hk9l1gj07tyva3iv5k08e66`;
+
+    alter table `user_thread` 
+       drop 
+       foreign key `FKgqs4w4ub70dcdyshevifabop4`;
+
+    alter table `worker` 
+       drop 
+       foreign key FK_l5q1f33vs2drypmbdhpdgwfv3;
 
     drop table if exists `administrator`;
 
     drop table if exists `announcement`;
 
     drop table if exists `anonymous`;
+
+
+    drop table if exists `application`;
+
+
+    drop table if exists `auditor`;
 
     drop table if exists `authenticated`;
 
@@ -53,6 +93,10 @@
 
     drop table if exists `martin_bulletin`;
 
+    drop table if exists `message`;
+
+    drop table if exists `message_thread`;
+
     drop table if exists `muniz_bulletin`;
 
     drop table if exists `navarro_bulletin`;
@@ -70,5 +114,9 @@
     drop table if exists `spam`;
 
     drop table if exists `user_account`;
+
+    drop table if exists `user_thread`;
+
+    drop table if exists `worker`;
 
     drop table if exists `hibernate_sequence`;
