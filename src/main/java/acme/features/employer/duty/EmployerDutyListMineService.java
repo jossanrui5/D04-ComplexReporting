@@ -1,54 +1,52 @@
 
-package acme.features.employer.job;
+package acme.features.employer.duty;
 
 import java.util.Collection;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import acme.entities.jobs.Job;
+import acme.entities.duty.Duty;
 import acme.entities.roles.Employer;
 import acme.framework.components.Model;
 import acme.framework.components.Request;
-import acme.framework.entities.Principal;
 import acme.framework.services.AbstractListService;
 
 @Service
-public class EmployerJobListMineService implements AbstractListService<Employer, Job> {
+public class EmployerDutyListMineService implements AbstractListService<Employer, Duty> {
 
 	//Internal state --------------------------------------------------
 
 	@Autowired
-	EmployerJobRepository repository;
+	EmployerDutyRepository repository;
 
 
 	//AbstractListService<Authenticated, Announcement> interface ------
 
 	@Override
-	public boolean authorise(final Request<Job> request) {
+	public boolean authorise(final Request<Duty> request) {
 		assert request != null;
 
 		return true;
 	}
 
 	@Override
-	public void unbind(final Request<Job> request, final Job entity, final Model model) {
+	public void unbind(final Request<Duty> request, final Duty entity, final Model model) {
 		assert request != null;
 		assert entity != null;
 		assert model != null;
 
-		request.unbind(entity, model, "reference", "title", "deadline", "status");
+		request.unbind(entity, model, "title", "timexWeek");
 	}
 
 	@Override
-	public Collection<Job> findMany(final Request<Job> request) {
+	public Collection<Duty> findMany(final Request<Duty> request) {
 		assert request != null;
 
-		Collection<Job> result;
-		Principal principal;
+		Collection<Duty> result;
+		int id = request.getModel().getInteger("id");
 
-		principal = request.getPrincipal();
-		result = this.repository.findManyByEmployerId(principal.getActiveRoleId());
+		result = this.repository.findManyByJobId(id);
 
 		return result;
 	}

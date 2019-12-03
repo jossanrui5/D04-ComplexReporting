@@ -36,7 +36,9 @@ public class AuthenticatedJobListService implements AbstractListService<Authenti
 		assert entity != null;
 		assert model != null;
 
-		request.unbind(entity, model, "reference", "title", "deadline");
+
+		request.unbind(entity, model, "reference", "title", "deadline", "status");
+
 	}
 
 	@Override
@@ -45,7 +47,9 @@ public class AuthenticatedJobListService implements AbstractListService<Authenti
 
 		Collection<Job> result;
 
-		result = this.repository.findMany();
+
+		result = this.repository.findManyJobActive();
+
 
 		return result;
 	}

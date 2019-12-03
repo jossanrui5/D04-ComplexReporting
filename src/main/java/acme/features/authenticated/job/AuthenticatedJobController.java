@@ -29,8 +29,10 @@ public class AuthenticatedJobController extends AbstractController<Authenticated
 
 	@PostConstruct
 	private void initialise() {
-		super.addBasicCommand(BasicCommand.SHOW, this.showService);
+
 		super.addBasicCommand(BasicCommand.LIST, this.listService);
+		super.addBasicCommand(BasicCommand.SHOW, this.showService);
+
 	}
 
 }

@@ -1,3 +1,4 @@
+
 # i18n_en.messages
 #
 # Copyright (c) 2019 Rafael Corchuelo.
@@ -10,16 +11,15 @@
 
 employer.job.form.label.title = Title:
 employer.job.form.label.moreInfo = More Info:
+employer.job.form.label.status = Status:
 employer.job.form.label.salary = Salary:
 employer.job.form.label.deadline = Deadline:
 employer.job.form.label.reference = Reference:
 employer.job.form.label.description = Description:
 employer.job.form.button.return = Return
+employer.job.form.button.listDuties = List Duties
 
 employer.job.list.label.reference = Reference
 employer.job.list.label.title = Title
 employer.job.list.label.deadline = Deadline
-
-
-employer.job.form.button.listApplications = List the applications for this job
-
+employer.job.list.label.status = Status

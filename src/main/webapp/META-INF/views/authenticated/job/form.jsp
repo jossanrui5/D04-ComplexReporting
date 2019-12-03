@@ -17,6 +17,9 @@
 
 <acme:form>
 	<acme:form-textbox code="authenticated.job.form.label.reference" path="reference"/>
+
+	<acme:form-checkbox code="authenticated.job.form.label.status" path="finalMode"/>
+
 	<acme:form-textbox code="authenticated.job.form.label.title" path="title"/>
 	<acme:form-moment code="authenticated.job.form.label.deadline" path="deadline"/>
 	<acme:form-money code="authenticated.job.form.label.salary" path="salary"/>
@@ -24,8 +27,15 @@
 	<acme:form-textarea code="authenticated.job.form.label.description" path="description"/>
 	
 
+	<p id="duties"></p>
 	<acme:form-return code="authenticated.job.form.button.return"/>
 	
+	<script type="text/javascript">
+        $(document).ready(function() {
+            var submit = `<acme:form-submit code='authenticated.job.form.button.listDuties' method='get' action='/authenticated/duty/list-mine?id=${id}' />`;
+            document.getElementById("duties").innerHTML = submit;
+        });
+    </script>
 
 	
 </acme:form>

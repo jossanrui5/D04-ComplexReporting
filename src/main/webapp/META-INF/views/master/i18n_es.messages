@@ -26,10 +26,18 @@ master.menu.sign-up = Registrarse
 master.menu.sign-in = Entrar
 master.menu.sign-out = Salir
 
+
+# master.menu.employer #######################################################
+
+master.menu.employer = Empleado
+
+master.menu.employer.listJobs = Listar Mis Trabajos
+
 # master.menu.authenticated #######################################################
 
 master.menu.authenticated = Autentificado
 
+master.menu.authenticated.listJobs = Listar Trabajos
 master.menu.authenticated.listAnnouncement = Anuncios
 master.menu.authenticated.listChallenge = Retos
 master.menu.authenticated.listCompaniesRecord = Registro de Companias
