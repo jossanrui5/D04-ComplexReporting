@@ -14,7 +14,7 @@ import acme.framework.components.BasicCommand;
 import acme.framework.controllers.AbstractController;
 
 @Controller
-@RequestMapping("/employer/job?id/duty")
+@RequestMapping("/employer/duty")
 public class EmployerDutyController extends AbstractController<Employer, Duty> {
 
 	//Internal state -------------------------------------------

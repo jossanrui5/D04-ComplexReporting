@@ -10,6 +10,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.persistence.Transient;
 import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
@@ -63,5 +64,19 @@ public class Job extends DomainEntity {
 	@Valid
 	@ManyToOne(optional = false)
 	private Employer				employer;
+
+
+	//Derived attributes ------------------------------------------
+
+	@Transient
+	public String getStatus() {
+		String res;
+		if (this.finalMode == true) {
+			res = "Published";
+		} else {
+			res = "Draft";
+		}
+		return res.toString();
+	}
 
 }

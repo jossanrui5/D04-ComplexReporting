@@ -1,5 +1,5 @@
 
-package acme.features.employer.job;
+package acme.features.authenticated.job;
 
 import java.util.Collection;
 
@@ -10,12 +10,12 @@ import acme.entities.jobs.Job;
 import acme.framework.repositories.AbstractRepository;
 
 @Repository
-public interface EmployerJobRepository extends AbstractRepository {
+public interface AuthenticatedJobRepository extends AbstractRepository {
 
 	@Query("select j from Job j where j.id = ?1")
 	Job findOneJobById(int id);
 
-	@Query("select j from Job j where j.employer.id = ?1")
-	Collection<Job> findManyByEmployerId(int employerId);
+	@Query("select j from Job j where (j.finalMode = 1 and j.deadline >= NOW())")
+	Collection<Job> findManyJobActive();
 
 }

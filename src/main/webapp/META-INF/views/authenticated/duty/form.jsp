@@ -16,9 +16,9 @@
 <%@taglib prefix="acme" tagdir="/WEB-INF/tags"%>
 
 <acme:form>
-	<acme:form-textbox code="employer.duty.form.label.title" path="title"/>
-	<acme:form-textarea code="employer.duty.form.label.description" path="description"/>
-	<acme:form-integer code="employer.duty.form.label.timexWeek" path="timexWeek"/>
+	<acme:form-textbox code="authenticated.duty.form.label.title" path="title"/>
+	<acme:form-textarea code="authenticated.duty.form.label.description" path="description"/>
+	<acme:form-integer code="authenticated.duty.form.label.timexWeek" path="timexWeek"/>
 	
-	<acme:form-return code="employer.duty.form.button.return"/>
+	<acme:form-return code="authenticated.duty.form.button.return"/>
 </acme:form>

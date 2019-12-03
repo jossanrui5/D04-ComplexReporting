@@ -111,7 +111,63 @@
     	<property name="userAccount" ref="employer1UserAccount" />
     </bean>
     
-   
+    <bean name="employer2UserAccount" class="acme.framework.entities.UserAccount">
+        <property name="username" value="employer2" />
+        <property name="password" value="employer2" />
+        <property name="enabled" value="true" />
+        <property name="identity">
+            <bean class="acme.datatypes.UserIdentity">
+                <property name="name" value="Employer" />
+                <property name="surname" value="Two" />
+                <property name="email" value="employer2@acme.com" />
+            </bean>
+        </property>
+        <property name="roles">
+            <list>
+                <ref bean="employer2Employer" />
+                <ref bean="employer2Authenticated" />
+            </list>
+        </property>
+    </bean>
+    
+    <bean name="employer2Employer" class="acme.entities.roles.Employer">
+    	<property name="company" value="Employer II, Inc." />
+    	<property name="sector" value="Sector II" />
+    	<property name="userAccount" ref="employer2UserAccount" />
+    </bean>
+    
+    <bean name="employer2Authenticated" class="acme.framework.entities.Authenticated">
+    	<property name="userAccount" ref="employer2UserAccount" />
+    </bean>
+    
+   <bean name="employer3UserAccount" class="acme.framework.entities.UserAccount">
+        <property name="username" value="employer3" />
+        <property name="password" value="employer3" />
+        <property name="enabled" value="true" />
+        <property name="identity">
+            <bean class="acme.datatypes.UserIdentity">
+                <property name="name" value="Employer" />
+                <property name="surname" value="Three" />
+                <property name="email" value="employer3@acme.com" />
+            </bean>
+        </property>
+        <property name="roles">
+            <list>
+                <ref bean="employer3Employer" />
+                <ref bean="employer3Authenticated" />
+            </list>
+        </property>
+    </bean>
+    
+    <bean name="employer3Employer" class="acme.entities.roles.Employer">
+    	<property name="company" value="Employer III, Inc." />
+    	<property name="sector" value="Sector III" />
+    	<property name="userAccount" ref="employer3UserAccount" />
+    </bean>
+    
+    <bean name="employer3Authenticated" class="acme.framework.entities.Authenticated">
+    	<property name="userAccount" ref="employer3UserAccount" />
+    </bean>
 
 	<!-- Rewards -->
 
@@ -162,8 +218,24 @@
 				<ref bean="duty04"/>
 			</list>
 		</property>
-    	<property name="finalMode" value="true" />
+    	<property name="finalMode" value="false" />
     	<property name="employer" ref="employer1Employer" />
+    </bean>
+    
+    <bean name="job03" class="acme.entities.jobs.Job">
+    	<property name="reference" value="EMP2-JOB1" />
+    	<property name="title" value="Title 1" />
+    	<property name="deadline" value="2030/12/12 23:00" />
+    	<property name="salary" ref="reward02" />
+    	<property name="description" value="Description" />
+    	<property name="moreInfo" value="http://www.example.com" />
+    	<property name="duties"> 
+			<list>
+				<ref bean="duty04"/>
+			</list>
+		</property>
+    	<property name="finalMode" value="true" />
+    	<property name="employer" ref="employer2Employer" />
     </bean>
     
      <bean name="duty01" class="acme.entities.duty.Duty">
@@ -192,6 +264,13 @@
     	<property name="description" value="Description duty04"/>
     	<property name="timexWeek" value="16.50"/>
     	<property name="job" ref="job02"/>
+    </bean>
+    
+    <bean name="duty05" class="acme.entities.duty.Duty">
+    	<property name="title" value="Title duty05"/>
+    	<property name="description" value="Description duty05"/>
+    	<property name="timexWeek" value="18.50"/>
+    	<property name="job" ref="job03"/>
     </bean>
 
 

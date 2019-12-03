@@ -16,20 +16,20 @@
 <%@taglib prefix="acme" tagdir="/WEB-INF/tags"%>
 
 <acme:form>
-	<acme:form-textbox code="employer.job.form.label.reference" path="reference"/>
-	<acme:form-checkbox code="employer.job.form.label.status" path="finalMode"/>
-	<acme:form-textbox code="employer.job.form.label.title" path="title"/>
-	<acme:form-moment code="employer.job.form.label.deadline" path="deadline"/>
-	<acme:form-money code="employer.job.form.label.salary" path="salary"/>
-	<acme:form-url code="employer.job.form.label.moreInfo" path="moreInfo"/>
-	<acme:form-textarea code="employer.job.form.label.description" path="description"/>
+	<acme:form-textbox code="authenticated.job.form.label.reference" path="reference"/>
+	<acme:form-checkbox code="authenticated.job.form.label.status" path="finalMode"/>
+	<acme:form-textbox code="authenticated.job.form.label.title" path="title"/>
+	<acme:form-moment code="authenticated.job.form.label.deadline" path="deadline"/>
+	<acme:form-money code="authenticated.job.form.label.salary" path="salary"/>
+	<acme:form-url code="authenticated.job.form.label.moreInfo" path="moreInfo"/>
+	<acme:form-textarea code="authenticated.job.form.label.description" path="description"/>
 	
 	<p id="duties"></p>
-	<acme:form-return code="employer.job.form.button.return"/>
+	<acme:form-return code="authenticated.job.form.button.return"/>
 	
 	<script type="text/javascript">
         $(document).ready(function() {
-            var submit = `<acme:form-submit code='employer.job.form.button.listDuties' method='get' action='/employer/duty/list-mine?id=${id}' />`;
+            var submit = `<acme:form-submit code='authenticated.job.form.button.listDuties' method='get' action='/authenticated/duty/list-mine?id=${id}' />`;
             document.getElementById("duties").innerHTML = submit;
         });
     </script>
