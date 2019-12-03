@@ -45,6 +45,8 @@
 		</acme:menu-option>
 		
 		<acme:menu-option code="master.menu.authenticated" access="isAuthenticated()">
+			<acme:menu-suboption code="master.menu.authenticated.listJobs" action="/authenticated/job/list"/>
+			<acme:menu-suboption code="master.menu.authenticated.listMessageThreads" action="/authenticated/message-thread/list-mine"/>
 			<acme:menu-suboption code="master.menu.authenticated.listAnnouncement" action="/authenticated/announcement/list"/>
 			<acme:menu-suboption code="master.menu.authenticated.listChallenge" action="/authenticated/challenge/list"/>
 			<acme:menu-suboption code="master.menu.authenticated.listCompaniesRecord" action="/authenticated/company-records/list"/>
@@ -79,6 +81,15 @@
       
 			<acme:menu-separator/>
 			<acme:menu-suboption code="master.menu.administrator.shutdown" action="/master/shutdown"/>
+		</acme:menu-option>
+		
+		<acme:menu-option code="master.menu.worker" access="hasRole('Worker')">
+			<acme:menu-suboption code="master.menu.worker.application.list" action="/worker/application/list-mine"/>
+		</acme:menu-option>
+		
+		<acme:menu-option code="master.menu.employer" access="hasRole('Employer')">
+			<acme:menu-suboption code="master.menu.employer.job.list" action="/employer/job/list-mine"/>
+			<acme:menu-suboption code="master.menu.employer.application.list" action="/employer/application/list"/>
 		</acme:menu-option>
 
 		<acme:menu-option code="master.menu.provider" access="hasRole('Provider')">

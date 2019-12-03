@@ -38,6 +38,9 @@ master.menu.authenticated.listInvestorRecord = Investor Records
 master.menu.authenticated.listOffers = Offers
 master.menu.authenticated.listRequests = Requests
 
+master.menu.authenticated.listMessageThreads = Message Threads 
+master.menu.authenticated.listJobs = Jobs
+
 
 
 # master.menu.anonymous #######################################################
@@ -76,6 +79,18 @@ master.menu.administrator.investorRecord.create = Create Investor Record
 master.menu.administrator.companyRecords.create = Create Company Record
 master.menu.administrator.listChallenge.create = Create Challenge
 
+
+# master.menu.worker ########################################################
+
+master.menu.worker = Worker
+master.menu.worker.application.list = Applications
+
+# master.menu.employer ########################################################
+
+master.menu.employer = Empleador
+
+master.menu.employer.application.list = Applications
+master.menu.employer.job.list = Jobs
 
 # master.menu.provider ########################################################
 

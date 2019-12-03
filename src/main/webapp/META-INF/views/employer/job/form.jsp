@@ -23,5 +23,23 @@
 	<acme:form-url code="employer.job.form.label.moreInfo" path="moreInfo"/>
 	<acme:form-textarea code="employer.job.form.label.description" path="description"/>
 	
+	
+	
+
+	<p id="applications"></p>
+
+
 	<acme:form-return code="employer.job.form.button.return"/>
+	
+	
+	<script type="text/javascript">
+		$(document).ready(function() {
+			var submit = `<acme:form-submit code='employer.job.form.button.listApplications' method='get' action='/employer/application/list-mine?id=${id}' />`;
+			document.getElementById("applications").innerHTML = submit;
+		});
+	</script>
+	
 </acme:form>
+
+
+

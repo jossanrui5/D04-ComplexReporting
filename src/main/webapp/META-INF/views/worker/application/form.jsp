@@ -17,7 +17,10 @@
 
 <acme:form>
 	<acme:form-textbox code="worker.application.form.label.referenceNumber" path="referenceNumber"/>
-	<acme:form-moment code="employer.job.form.label.moment" path="moment"/>
+
+	<acme:form-textbox code="worker.application.form.label.jobTitle" path="jobTitle"/>
+	<acme:form-moment code="worker.application.form.label.moment" path="moment"/>
+
 	<acme:form-textbox code="worker.application.form.label.statement" path="statement"/>
 	<acme:form-textarea code="worker.application.form.label.skills" path="skills"/>
 	<acme:form-textarea code="worker.application.form.label.qualifications" path="qualifications"/>

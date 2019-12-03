@@ -1,5 +1,7 @@
 
-package acme.features.worker.applicatoin;
+
+package acme.features.worker.application;
+
 
 import javax.annotation.PostConstruct;
 

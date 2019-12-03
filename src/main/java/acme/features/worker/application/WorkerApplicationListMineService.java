@@ -14,7 +14,8 @@ import acme.framework.entities.Principal;
 import acme.framework.services.AbstractListService;
 
 @Service
-public class WorkerApplicationMineService implements AbstractListService<Worker, Application> {
+
+public class WorkerApplicationListMineService implements AbstractListService<Worker, Application> {
 
 	//Internal state --------------------------------------------------
 
@@ -37,7 +38,9 @@ public class WorkerApplicationMineService implements AbstractListService<Worker,
 		assert entity != null;
 		assert model != null;
 
-		request.unbind(entity, model, "referenceNumber", "moment", "statement");
+
+		request.unbind(entity, model, "referenceNumber", "moment", "statement", "jobTitle");
+
 	}
 
 	@Override

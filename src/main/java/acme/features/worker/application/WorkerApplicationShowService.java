@@ -27,14 +27,12 @@ public class WorkerApplicationShowService implements AbstractShowService<Worker,
 		assert request != null;
 
 		boolean result;
-		int jobId;
-		Job job;
-		Employer employer;
 		Principal principal;
 
-		appId = request.getModel().getInteger("id");
-		app = this.repository.findOneJobById(appId);
-		worker = app.getWorker();
+		int appId = request.getModel().getInteger("id");
+		Application app = this.repository.findOneApplicationById(appId);
+		Worker worker = app.getWorker();
+
 		principal = request.getPrincipal();
 		result = app.isFinalMode() || !app.isFinalMode() && worker.getUserAccount().getId() == principal.getAccountId();
 
@@ -48,7 +46,8 @@ public class WorkerApplicationShowService implements AbstractShowService<Worker,
 		assert model != null;
 
 		request.unbind(entity, model, "referenceNumber", "moment", "statement");
-		request.unbind(entity, model, "skills", "qualifications", "finalMode");
+		request.unbind(entity, model, "skills", "qualifications", "finalMode", "jobTitle");
+
 	}
 
 	@Override

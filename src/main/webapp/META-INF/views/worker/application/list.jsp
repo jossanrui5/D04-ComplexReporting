@@ -4,8 +4,11 @@
 <%@taglib prefix="acme" tagdir="/WEB-INF/tags"%>
 
 <acme:list>
-	<acme:list-column code="worker.application.list.label.reference" path="referenceNumber" width="20%"/>
-	<acme:list-column code="worker.application.list.label.deadline" path="moment" width="20%"/>
-	<acme:list-column code="worker.application.list.label.title" path="statement" width="40%"/>
+
+	<acme:list-column code="worker.application.list.label.referenceNumber" path="referenceNumber" width="20%"/>
+	<acme:list-column code="worker.application.list.label.moment" path="moment" width="20%"/>
+	<acme:list-column code="worker.application.list.label.statement" path="statement" width="40%"/>
+	<acme:list-column code="worker.application.list.label.jobTitle" path="jobTitle" width="20%"/>
+
 	
 </acme:list>
