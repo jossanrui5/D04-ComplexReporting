@@ -8,6 +8,7 @@ import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+
 import javax.persistence.Transient;
 import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
@@ -18,6 +19,7 @@ import org.hibernate.validator.constraints.Length;
 
 import acme.entities.jobs.Job;
 import acme.entities.roles.Worker;
+
 import acme.framework.entities.DomainEntity;
 import lombok.Getter;
 import lombok.Setter;
@@ -26,7 +28,9 @@ import lombok.Setter;
 @Getter
 @Setter
 
+
 public class Application extends DomainEntity {
+
 
 	private static final long	serialVersionUID	= 1L;
 
@@ -35,6 +39,7 @@ public class Application extends DomainEntity {
 	@Length(min = 5, max = 15)
 	private String				referenceNumber;
 
+
 	@NotNull
 	@Temporal(TemporalType.TIMESTAMP)
 	@Past
@@ -42,6 +47,7 @@ public class Application extends DomainEntity {
 
 	@NotBlank
 	private String				statement;
+
 
 	@NotBlank
 	private String				skills;
@@ -56,9 +62,11 @@ public class Application extends DomainEntity {
 	@ManyToOne(optional = false)
 	private Worker				worker;
 
+
 	@NotNull
 	@Valid
 	@ManyToOne(optional = false)
+
 	private Job					job;
 
 
@@ -68,3 +76,4 @@ public class Application extends DomainEntity {
 	}
 
 }
+

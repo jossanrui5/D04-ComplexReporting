@@ -106,6 +106,7 @@
 	
 
 	<!-- Auditors -->
+
 	
 	<bean id="auditor01" class="acme.entities.roles.Auditor">
 		<property name="firm" value="firm test" />
@@ -247,6 +248,72 @@
 
 	<!-- Rewards -->
 
+	<bean name="worker1UserAccount" class="acme.framework.entities.UserAccount">
+        <property name="username" value="worker1" />
+        <property name="password" value="worker1" />
+        <property name="enabled" value="true" />
+        <property name="identity">
+            <bean class="acme.datatypes.UserIdentity">
+                <property name="name" value="worker" />
+                <property name="surname" value="one" />
+                <property name="email" value="worker1@acme.com" />
+            </bean>
+        </property>
+        <property name="roles">
+            <list>
+                <ref bean="worker1Worker" />
+                <ref bean="worker1Authenticated" />
+            </list>
+        </property>
+    </bean>
+    
+    <bean name="worker1Worker" class="acme.entities.roles.Worker">
+    	<property name="company" value="Employer I, Inc." />
+    	<property name="sector" value="Sector I" />
+    	<property name="userAccount" ref="worker1UserAccount" />
+    </bean>
+    
+    <bean name="worker1Authenticated" class="acme.framework.entities.Authenticated">
+    	<property name="userAccount" ref="worker1UserAccount" />
+    </bean>
+    
+
+	<!-- Employers -->
+
+	
+	<bean name="employer1UserAccount" class="acme.framework.entities.UserAccount">
+        <property name="username" value="employer1" />
+        <property name="password" value="employer1" />
+        <property name="enabled" value="true" />
+        <property name="identity">
+            <bean class="acme.datatypes.UserIdentity">
+                <property name="name" value="Employer" />
+                <property name="surname" value="One" />
+                <property name="email" value="employer1@acme.com" />
+            </bean>
+        </property>
+        <property name="roles">
+            <list>
+                <ref bean="employer1Employer" />
+                <ref bean="employer1Authenticated" />
+            </list>
+        </property>
+    </bean>
+    
+    <bean name="employer1Employer" class="acme.entities.roles.Employer">
+    	<property name="company" value="Employer I, Inc." />
+    	<property name="sector" value="Sector I" />
+    	<property name="userAccount" ref="employer1UserAccount" />
+    </bean>
+    
+    <bean name="employer1Authenticated" class="acme.framework.entities.Authenticated">
+    	<property name="userAccount" ref="employer1UserAccount" />
+    </bean>
+    
+   
+
+	<!-- Rewards -->
+
 	<bean id="reward01" class="acme.framework.datatypes.Money">
 		<property name="amount" value="1000" />
 		<property name="currency" value="€" />
@@ -309,6 +376,7 @@
     </bean>
 
 
+
 	<!-- Applications -->
     
     <bean name="application01" class="acme.entities.applications.Application">
@@ -353,6 +421,28 @@
     	<property name="finalMode" value="true" />
     	<property name="worker" ref="worker2Worker" />
     	<property name="job" ref="job03" />
+    </bean>
+
+	<!-- Applications -->
+    
+    <bean name="application01" class="acme.entities.applications.Application">
+    	<property name="referenceName" value="WOR1-APP1" />
+    	<property name="moment" value="2018/12/12 23:00" />
+    	<property name="statement" value="example statement" />
+    	<property name="skills" value="example skills" />
+    	<property name="qualifications" value="example qualifications" />
+    	<property name="finalMode" value="true" />
+    	<property name="worker" ref="worker1Worker" />
+    </bean>
+    
+    <bean name="application02" class="acme.entities.applications.Application">
+    	<property name="referenceName" value="WOR1-APP2" />
+    	<property name="moment" value="2015/10/19 21:00" />
+    	<property name="statement" value="example statement" />
+    	<property name="skills" value="example skills" />
+    	<property name="qualifications" value="example qualifications" />
+    	<property name="finalMode" value="true" />
+    	<property name="worker" ref="worker1Worker" />
     </bean>
 
 	<!-- Challenges -->

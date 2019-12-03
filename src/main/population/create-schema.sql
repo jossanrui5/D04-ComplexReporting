@@ -23,6 +23,7 @@
         primary key (`id`)
     ) engine=InnoDB;
 
+
     create table `application` (
        `id` integer not null,
         `version` integer not null,
@@ -36,6 +37,7 @@
         `worker_id` integer not null,
         primary key (`id`)
     ) engine=InnoDB;
+
 
     create table `auditor` (
        `id` integer not null,
@@ -327,6 +329,7 @@ create index IDX6075l7l7ajup0b22keibg4bil on `request_entity` (`deadline`);
        foreign key (`user_account_id`) 
        references `user_account` (`id`);
 
+
     alter table `application` 
        add constraint `FKoa6p4s2oyy7tf80xwc4r04vh6` 
        foreign key (`job_id`) 
@@ -336,6 +339,7 @@ create index IDX6075l7l7ajup0b22keibg4bil on `request_entity` (`deadline`);
        add constraint `FKmbjdoxi3o93agxosoate4sxbt` 
        foreign key (`worker_id`) 
        references `worker` (`id`);
+
 
     alter table `auditor` 
        add constraint FK_clqcq9lyspxdxcp6o4f3vkelj 
@@ -362,6 +366,7 @@ create index IDX6075l7l7ajup0b22keibg4bil on `request_entity` (`deadline`);
        foreign key (`employer_id`) 
        references `employer` (`id`);
 
+
     alter table `message` 
        add constraint `FKn5adlx3oqjna7aupm8gwg3fuj` 
        foreign key (`message_thread_id`) 
@@ -371,6 +376,7 @@ create index IDX6075l7l7ajup0b22keibg4bil on `request_entity` (`deadline`);
        add constraint `FKadu47h7h56fegmk27oo1qd1fb` 
        foreign key (`starter_id`) 
        references `authenticated` (`id`);
+
 
     alter table `provider` 
        add constraint FK_b1gwnjqm6ggy9yuiqm0o4rlmd 

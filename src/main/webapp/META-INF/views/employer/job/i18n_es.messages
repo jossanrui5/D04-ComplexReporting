@@ -8,6 +8,7 @@
 # purposes.  The copyright owner does not offer any warranties or representations, nor do
 # they accept any liabilities with respect to them.
 
+
 employer.job.form.label.title = Título:
 employer.job.form.label.moreInfo = Más Información:
 employer.job.form.label.salary = Salario:
@@ -21,3 +22,4 @@ employer.job.list.label.title = Título
 employer.job.list.label.deadline = Fecha límite
 
 employer.job.form.button.listApplications = Listar las solicitudes para este trabajo
+

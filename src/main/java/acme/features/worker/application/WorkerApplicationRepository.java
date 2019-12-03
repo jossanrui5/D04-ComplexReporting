@@ -12,6 +12,7 @@ import acme.framework.repositories.AbstractRepository;
 @Repository
 public interface WorkerApplicationRepository extends AbstractRepository {
 
+
 	@Query("select a from Application a where a.id = ?1")
 	Application findOneApplicationById(int id);
 
