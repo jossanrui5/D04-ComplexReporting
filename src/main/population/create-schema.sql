@@ -23,6 +23,29 @@
         primary key (`id`)
     ) engine=InnoDB;
 
+    create table `application` (
+       `id` integer not null,
+        `version` integer not null,
+        `final_mode` bit not null,
+        `moment` datetime(6),
+        `qualifications` varchar(255),
+        `reference_number` varchar(255),
+        `skills` varchar(255),
+        `statement` varchar(255),
+        `job_id` integer not null,
+        `worker_id` integer not null,
+        primary key (`id`)
+    ) engine=InnoDB;
+
+    create table `auditor` (
+       `id` integer not null,
+        `version` integer not null,
+        `user_account_id` integer,
+        `firm` varchar(255),
+        `responsibility_statement` varchar(255),
+        primary key (`id`)
+    ) engine=InnoDB;
+
     create table `authenticated` (
        `id` integer not null,
         `version` integer not null,
@@ -51,7 +74,11 @@
     create table `commercial_banner` (
        `id` integer not null,
         `version` integer not null,
-        `credit_card` varchar(255),
+        `creditcardbrand` varchar(255),
+        `creditcardcvv` varchar(255),
+        `creditcarddeadline` varchar(255),
+        `creditcardholder` varchar(255),
+        `creditcardnumber` varchar(255),
         `picture` varchar(255),
         `slogan` varchar(255),
         `url` varchar(255),
@@ -82,6 +109,15 @@
         primary key (`id`)
     ) engine=InnoDB;
 
+    create table `employer` (
+       `id` integer not null,
+        `version` integer not null,
+        `user_account_id` integer,
+        `company` varchar(255),
+        `sector` varchar(255),
+        primary key (`id`)
+    ) engine=InnoDB;
+
     create table `gamez_bulletin` (
        `id` integer not null,
         `version` integer not null,
@@ -102,6 +138,21 @@
         primary key (`id`)
     ) engine=InnoDB;
 
+    create table `job` (
+       `id` integer not null,
+        `version` integer not null,
+        `deadline` datetime(6),
+        `description` varchar(255),
+        `final_mode` bit not null,
+        `more_info` varchar(255),
+        `reference` varchar(255),
+        `salary_amount` double precision,
+        `salary_currency` varchar(255),
+        `title` varchar(255),
+        `employer_id` integer not null,
+        primary key (`id`)
+    ) engine=InnoDB;
+
     create table `martin_bulletin` (
        `id` integer not null,
         `version` integer not null,
@@ -110,6 +161,26 @@
         `name` varchar(255),
         `surname` varchar(255),
         `text` varchar(255),
+        primary key (`id`)
+    ) engine=InnoDB;
+
+    create table `message` (
+       `id` integer not null,
+        `version` integer not null,
+        `body` varchar(255),
+        `moment` datetime(6),
+        `tags` varchar(255),
+        `title` varchar(255),
+        `message_thread_id` integer not null,
+        primary key (`id`)
+    ) engine=InnoDB;
+
+    create table `message_thread` (
+       `id` integer not null,
+        `version` integer not null,
+        `moment` datetime(6),
+        `title` varchar(255),
+        `starter_id` integer not null,
         primary key (`id`)
     ) engine=InnoDB;
 
@@ -211,12 +282,35 @@
         primary key (`id`)
     ) engine=InnoDB;
 
+    create table `user_thread` (
+       `id` integer not null,
+        `version` integer not null,
+        `message_thread_id` integer not null,
+        `user_id` integer not null,
+        primary key (`id`)
+    ) engine=InnoDB;
+
+    create table `worker` (
+       `id` integer not null,
+        `version` integer not null,
+        `user_account_id` integer,
+        `company` varchar(255),
+        `sector` varchar(255),
+        primary key (`id`)
+    ) engine=InnoDB;
+
     create table `hibernate_sequence` (
        `next_val` bigint
     ) engine=InnoDB;
 
     insert into `hibernate_sequence` values ( 1 );
+
+    alter table `application` 
+       add constraint UK_rf84q38qr35ymh5nn0dcxfdue unique (`reference_number`);
 create index IDXnr284tes3x8hnd3h716tmb3fr on `challenge` (`deadline`);
+
+    alter table `job` 
+       add constraint UK_7jmfdvs0b0jx7i33qxgv22h7b unique (`reference`);
 create index IDXq2o9psuqfuqmq59f0sq57x9uf on `offer` (`deadline`);
 create index IDX6075l7l7ajup0b22keibg4bil on `request_entity` (`deadline`);
 
@@ -233,6 +327,21 @@ create index IDX6075l7l7ajup0b22keibg4bil on `request_entity` (`deadline`);
        foreign key (`user_account_id`) 
        references `user_account` (`id`);
 
+    alter table `application` 
+       add constraint `FKoa6p4s2oyy7tf80xwc4r04vh6` 
+       foreign key (`job_id`) 
+       references `job` (`id`);
+
+    alter table `application` 
+       add constraint `FKmbjdoxi3o93agxosoate4sxbt` 
+       foreign key (`worker_id`) 
+       references `worker` (`id`);
+
+    alter table `auditor` 
+       add constraint FK_clqcq9lyspxdxcp6o4f3vkelj 
+       foreign key (`user_account_id`) 
+       references `user_account` (`id`);
+
     alter table `authenticated` 
        add constraint FK_h52w0f3wjoi68b63wv9vwon57 
        foreign key (`user_account_id`) 
@@ -243,7 +352,42 @@ create index IDX6075l7l7ajup0b22keibg4bil on `request_entity` (`deadline`);
        foreign key (`user_account_id`) 
        references `user_account` (`id`);
 
+    alter table `employer` 
+       add constraint FK_na4dfobmeuxkwf6p75abmb2tr 
+       foreign key (`user_account_id`) 
+       references `user_account` (`id`);
+
+    alter table `job` 
+       add constraint `FK3rxjf8uh6fh2u990pe8i2at0e` 
+       foreign key (`employer_id`) 
+       references `employer` (`id`);
+
+    alter table `message` 
+       add constraint `FKn5adlx3oqjna7aupm8gwg3fuj` 
+       foreign key (`message_thread_id`) 
+       references `message_thread` (`id`);
+
+    alter table `message_thread` 
+       add constraint `FKadu47h7h56fegmk27oo1qd1fb` 
+       foreign key (`starter_id`) 
+       references `authenticated` (`id`);
+
     alter table `provider` 
        add constraint FK_b1gwnjqm6ggy9yuiqm0o4rlmd 
+       foreign key (`user_account_id`) 
+       references `user_account` (`id`);
+
+    alter table `user_thread` 
+       add constraint `FKp4hk9l1gj07tyva3iv5k08e66` 
+       foreign key (`message_thread_id`) 
+       references `message_thread` (`id`);
+
+    alter table `user_thread` 
+       add constraint `FKgqs4w4ub70dcdyshevifabop4` 
+       foreign key (`user_id`) 
+       references `authenticated` (`id`);
+
+    alter table `worker` 
+       add constraint FK_l5q1f33vs2drypmbdhpdgwfv3 
        foreign key (`user_account_id`) 
        references `user_account` (`id`);

@@ -4,7 +4,6 @@
 <%@taglib prefix="acme" tagdir="/WEB-INF/tags"%>
 
 <acme:list>
-	<acme:list-column code="authenticated.messageThread.list.label.moment" path="moment" width="20%"/>
-	<acme:list-column code="authenticated.messageThread.list.label.title" path="title" width="20%"/>
-	
+	<acme:list-column code="authenticated.messageThread.list.label.title" path="title" width="50%"/>
+	<acme:list-column code="authenticated.messageThread.list.label.moment" path="starterUsername" width="50%"/>
 </acme:list>

@@ -45,7 +45,7 @@ public class AuthenticatedMessageListMineService implements AbstractListService<
 		assert request != null;
 
 		Collection<Message> result;
-		int id = (int) request.getServletRequest().getAttribute("id");
+		int id = request.getModel().getInteger("id");
 
 		result = this.repository.findManyAll(id);
 

@@ -30,13 +30,16 @@ master.menu.sign-out = Salir
 
 master.menu.authenticated = Autentificado
 
-master.menu.authenticated.listMessageThread = Mis Cadenas de Mensaje
 master.menu.authenticated.listAnnouncement = Anuncios
 master.menu.authenticated.listChallenge = Retos
 master.menu.authenticated.listCompaniesRecord = Registro de Companias
 master.menu.authenticated.listInvestorRecord = Registro de Inversores
 master.menu.authenticated.listOffers = Ofertas
 master.menu.authenticated.listRequests = Peticiones
+
+master.menu.authenticated.listMessageThreads = Cadenas de mensajes
+master.menu.authenticated.listJobs = Trabajos
+
 
 
 # master.menu.anonymous #######################################################
@@ -48,10 +51,10 @@ master.menu.anonymous.listJoseManuel = Bulletin de José Manuel
 master.menu.anonymous.listJose = Bulletin de Jose
 master.menu.anonymous.listJavier = Bulletin de Javier
 master.menu.anonymous.listIsaac = Bulletin de Isaac
-master.menu.anonymous.listCompaniesRecord = Registro de Companias
+master.menu.anonymous.listCompaniesRecord = Registro de Compañias
 master.menu.anonymous.listInvestorRecord = Registro de Inversores
 master.menu.anonymous.listAnnouncements= Anuncios
-master.menu.anonymous.listTopCompanies = Mejores Companias
+master.menu.anonymous.listTopCompanies = Mejores Compañias
 master.menu.anonymous.listTopInvestors = Mejores Inversores
 
 
@@ -62,8 +65,8 @@ master.menu.administrator.user-accounts = Cuentas de usuario
 master.menu.administrator.listAnnouncement = Anuncios
 master.menu.administrator.companyRecords = Registro de compañias
 master.menu.administrator.shutdown = Parar el sistema
-master.menu.administrator.spam = Configuracion de Spam
-master.menu.administrator.companyRecordsChart = Grafico de Registro de Compania y Inversores
+master.menu.administrator.spam = Configuración de Spam
+master.menu.administrator.companyRecordsChart = Gráfico de Registro de Compañia y Inversores
 master.menu.administrator.listData = Listar Datos
 master.menu.administrator.commercial-banner = Banners Comerciales
 master.menu.administrator.non-commercial-banner = Banners No Comerciales
@@ -77,6 +80,19 @@ master.menu.administrator.investorRecord.create = Crear Registro de Inversor
 master.menu.administrator.companyRecords.create = Crear Registro de Compañia
 master.menu.administrator.listChallenge.create = Crear Reto
 
+# master.menu.worker ########################################################
+
+master.menu.worker = Trabajador
+
+master.menu.worker.application.list = Solicitudes
+
+# master.menu.employer ########################################################
+
+master.menu.employer = Empleador
+
+master.menu.employer.application.list = Solicitudes
+master.menu.employer.job.list = Trabajos
+
 
 # master.menu.provider ########################################################
 
@@ -88,6 +104,10 @@ master.menu.provider.request.create = Crear Petición
 master.menu.consumer = Consumidor
 master.menu.consumer.offer.create = Crear Oferta
 
+# master.menu.auditor ##########################################################
+
+master.menu.auditor = Auditor
+
 # master.menu.user-account ####################################################
 
 master.menu.user-account = Cuenta
@@ -96,6 +116,8 @@ master.menu.user-account.provider = Datos de proveedor
 master.menu.user-account.become-provider = Hazte proveedor
 master.menu.user-account.consumer = Datos de consumidor
 master.menu.user-account.become-consumer = Hazte consumidor
+master.menu.user-account.auditor = Datos de auditor
+master.menu.user-account.become-auditor = Hazte auditor
 
 ﻿# master.footer ###############################################################
 

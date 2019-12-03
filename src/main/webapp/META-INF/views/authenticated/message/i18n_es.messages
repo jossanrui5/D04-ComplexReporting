@@ -8,12 +8,12 @@
 # purposes.  The copyright owner does not offer any warranties or representations, nor do
 # they accept any liabilities with respect to them.
 
-authenticated.messageThread.form.label.title = Titulo:
-authenticated.messageThread.form.label.moment = Momento:
-authenticated.messageThread.form.label.tags = Etiquetas:
-authenticated.messageThread.form.label.body = Cuerpo:
-authenticated.message.form.label.thread = Cadena de mensajes:
-authenticated.offer.form.button.return = Volver
+authenticated.message.form.label.title = Título:
+authenticated.message.form.label.moment = Momento:
+authenticated.message.form.label.tags = Etiquetas:
+authenticated.message.form.label.body = Cuerpo:
+authenticated.message.form.label.messageThreadTitle = Cadena de mensajes:
+authenticated.message.form.button.return = Volver
 
-authenticated.messageThread.list.label.moment = Momento
-authenticated.messageThread.list.label.title = Titulo
+authenticated.message.list.label.moment = Momento
+authenticated.message.list.label.title = Título

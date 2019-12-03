@@ -28,11 +28,11 @@ public class UserThread extends DomainEntity {
 	@NotNull
 	@Valid
 	@ManyToOne(optional = false)
-	private Authenticated		authenticated;
+	private MessageThread		messageThread;
 
 	@NotNull
 	@Valid
 	@ManyToOne(optional = false)
-	private MessageThread		messageThread;
+	private Authenticated		user;
 
 }

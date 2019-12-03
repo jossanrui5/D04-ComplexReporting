@@ -8,9 +8,12 @@
 # purposes.  The copyright owner does not offer any warranties or representations, nor do
 # they accept any liabilities with respect to them.
 
-authenticated.messageThread.form.label.title = Titulo:
+authenticated.messageThread.form.label.title = Título:
 authenticated.messageThread.form.label.moment = Momento:
-authenticated.messageThread.form.button.return = Return
+authenticated.messageThread.form.label.starterUsername = Creador:
+
+authenticated.messageThread.form.button.listMessages = Listar mensajes de esta cadena
+authenticated.messageThread.form.button.return = Volver
 
 authenticated.messageThread.list.label.moment = Momento
-authenticated.messageThread.list.label.title = Titulo
+authenticated.messageThread.list.label.title = Título

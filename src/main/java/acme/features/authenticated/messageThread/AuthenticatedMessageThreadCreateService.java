@@ -1,12 +1,15 @@
 
 package acme.features.authenticated.messageThread;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entities.messageThread.MessageThread;
+import acme.entities.userThread.UserThread;
 import acme.framework.components.Errors;
 import acme.framework.components.Model;
 import acme.framework.components.Request;
@@ -33,7 +36,7 @@ public class AuthenticatedMessageThreadCreateService implements AbstractCreateSe
 		assert entity != null;
 		assert errors != null;
 
-		request.bind(entity, errors, "moment", "starter");
+		request.bind(entity, errors, "moment", "starter", "users");
 	}
 
 	@Override
@@ -61,6 +64,7 @@ public class AuthenticatedMessageThreadCreateService implements AbstractCreateSe
 		assert errors != null;
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public void create(final Request<MessageThread> request, final MessageThread entity) {
 		assert request != null;
@@ -75,6 +79,13 @@ public class AuthenticatedMessageThreadCreateService implements AbstractCreateSe
 		int id = request.getPrincipal().getAccountId();
 		authenticated = this.repository.findAuthenticatedByPrincipal(id);
 		entity.setStarter(authenticated);
+
+		//-----------------------------------------------------------------
+
+		List<UserThread> users = new ArrayList<>();
+		users = (List<UserThread>) request.getModel().getAttribute("users");
+
+		entity.setUsers(users);
 
 		this.repository.save(entity);
 	}

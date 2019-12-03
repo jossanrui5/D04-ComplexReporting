@@ -15,14 +15,20 @@
 <%@taglib prefix="jstl" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@taglib prefix="acme" tagdir="/WEB-INF/tags"%>
 
-<acme:form readonly="true">
+<acme:form>
 	<acme:form-textbox code="authenticated.messageThread.form.label.title" path="title"/>
-	<acme:form-moment readonly="true" code="authenticated.messageThread.form.label.moment" path="moment"/>
-<%-- 	<acme:form-select code="administrator.company-records.form.label.isIncorporated" path="isIncorporated"> --%>
-<%-- 		<jstl:forEach var="label" items="${userAccounts.keySet()}"> --%>
-<%-- 			<acme:form-option code="${label}" value="${label}"/> --%>
-<%-- 		</jstl:forEach> --%>
-<%-- 	</acme:form-select> --%>
+	<acme:form-moment code="authenticated.messageThread.form.label.moment" path="moment"/>
+	<acme:form-textbox code="authenticated.messageThread.form.label.starterUsername" path="starterUsername"/>
+
+
+	<p id="messages"></p>
 	
 	<acme:form-return code="authenticated.messageThread.form.button.return"/>
+	
+	<script type="text/javascript">
+		$(document).ready(function() {
+			var submit = `<acme:form-submit code='authenticated.messageThread.form.button.listMessages' method='get' action='/authenticated/message/list-mine?id=${id}' />`;
+			document.getElementById("messages").innerHTML = submit;
+		});
+	</script>
 </acme:form>
