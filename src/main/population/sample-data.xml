@@ -181,7 +181,6 @@
     	<property name="userAccount" ref="worker2UserAccount" />
     </bean>
 
-   
 
 	<!-- Employers -->
 
@@ -306,6 +305,12 @@
 				<ref bean="duty03"/>
 			</list>
 		</property>
+		<property name="auditRecords"> 
+			<list>
+				<ref bean="AuditRecord01"/>
+				<ref bean="AuditRecord02"/>
+			</list>
+		</property>
     	<property name="finalMode" value="true" />
     	<property name="employer" ref="employer1Employer" />
     </bean>
@@ -323,6 +328,11 @@
 				<ref bean="duty04"/>
 			</list>
 		</property>
+		<property name="auditRecords"> 
+			<list>
+				<ref bean="AuditRecord03"/>
+			</list>
+		</property>
     	<property name="finalMode" value="false" />
     	<property name="employer" ref="employer1Employer" />
     </bean>
@@ -337,6 +347,10 @@
     	<property name="duties"> 
 			<list>
 				<ref bean="duty04"/>
+			</list>
+		</property>
+		<property name="auditRecords"> 
+			<list>
 			</list>
 		</property>
     	<property name="finalMode" value="true" />
@@ -466,7 +480,35 @@
 		<property name="rewardBronze" ref="reward01" />
 	</bean>
 	
+	<!-- Audit Records -->
+
+	<bean id="AuditRecord01" class="acme.entities.auditRecords.AuditRecords">
+		<property name="title" value="audit record 1" />
+		<property name="moreInfo" value="false" />
+		<property name="moment" value="2019/09/09 10:00" />
+		<property name="body" value="body test 1" />
+		<property name="job" ref="job01"/>
+		<property name="auditor" ref="auditor01"/>
+	</bean>
 	
+	<bean id="AuditRecord02" class="acme.entities.auditRecords.AuditRecords">
+		<property name="title" value="audit record 2" />
+		<property name="moreInfo" value="true" />
+		<property name="moment" value="2019/07/23 15:00" />
+		<property name="body" value="body test 2" />
+		<property name="job" ref="job01"/>
+		<property name="auditor" ref="auditor01"/>
+	</bean>
+	
+	
+	<bean id="AuditRecord03" class="acme.entities.auditRecords.AuditRecords">
+		<property name="title" value="audit record 3" />
+		<property name="moreInfo" value="false" />
+		<property name="moment" value="2019/08/11 22:00" />
+		<property name="body" value="body test 3" />
+		<property name="job" ref="job02"/>
+		<property name="auditor" ref="auditor01"/>
+	</bean>
 	
 	
 	<!-- Credit Card -->

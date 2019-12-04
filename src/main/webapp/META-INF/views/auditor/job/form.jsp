@@ -16,31 +16,35 @@
 <%@taglib prefix="acme" tagdir="/WEB-INF/tags"%>
 
 <acme:form>
-	<acme:form-textbox code="authenticated.job.form.label.reference" path="reference"/>
+	<acme:form-textbox code="auditor.job.form.label.reference" path="reference"/>
 
-	<acme:form-checkbox code="authenticated.job.form.label.status" path="finalMode"/>
+	<acme:form-checkbox code="auditor.job.form.label.status" path="finalMode"/>
 
-	<acme:form-textbox code="authenticated.job.form.label.title" path="title"/>
-	<acme:form-moment code="authenticated.job.form.label.deadline" path="deadline"/>
-	<acme:form-money code="authenticated.job.form.label.salary" path="salary"/>
-	<acme:form-url code="authenticated.job.form.label.moreInfo" path="moreInfo"/>
-	<acme:form-textarea code="authenticated.job.form.label.description" path="description"/>
+	<acme:form-textbox code="auditor.job.form.label.title" path="title"/>
+	<acme:form-moment code="auditor.job.form.label.deadline" path="deadline"/>
+	<acme:form-money code="auditor.job.form.label.salary" path="salary"/>
+	<acme:form-url code="auditor.job.form.label.moreInfo" path="moreInfo"/>
+	<acme:form-textarea code="auditor.job.form.label.description" path="description"/>
 	
 
 	<p id="duties"></p>
 	 <p id="auditRecords"></p>
-	<acme:form-return code="authenticated.job.form.button.return"/>
+	
+	<acme:form-return code="auditor.job.form.button.return"/>
 	
 	<script type="text/javascript">
+	
         $(document).ready(function() {
-            var submit = `<acme:form-submit code='authenticated.job.form.button.listDuties' method='get' action='/authenticated/duty/list?id=${id}' />`;
+            var submit = `<acme:form-submit code='auditor.job.form.button.listDuties' method='get' action='/authenticated/duty/list?id=${id}' />`;
             document.getElementById("duties").innerHTML = submit;
         });
     </script>
     
-    	<script type="text/javascript">
+   
+	
+	<script type="text/javascript">
         $(document).ready(function() {
-            var submit = `<acme:form-submit code='authenticated.job.form.button.listAuditRecords' method='get' action='/authenticated/audit-records/list-mine?id=${id}' />`;
+            var submit = `<acme:form-submit code='auditor.job.form.button.listAuditRecords' method='get' action='/authenticated/audit-records/list-mine?id=${id}' />`;
             document.getElementById("auditRecords").innerHTML = submit;
         });
     </script>

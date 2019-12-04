@@ -121,6 +121,8 @@ master.menu.consumer.offer.create = Create Offer
 # master.menu.auditor ##########################################################
 
 master.menu.auditor = Auditor
+master.menu.auditor.job.list-mine = Your Jobs
+master.menu.auditor.job.list-not-mine = Other Jobs
 
 # master.menu.user-account ####################################################
 
