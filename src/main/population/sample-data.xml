@@ -180,9 +180,7 @@
     <bean name="worker2Authenticated" class="acme.framework.entities.Authenticated">
     	<property name="userAccount" ref="worker2UserAccount" />
     </bean>
-    
 
-    
 
 	<!-- Employers -->
 
@@ -416,7 +414,7 @@
     	<property name="statement" value="example statement" />
     	<property name="skills" value="example skills" />
     	<property name="qualifications" value="example qualifications" />
-    	<property name="finalMode" value="true" />
+    	<property name="finalMode" value="false" />
     	<property name="worker" ref="worker1Worker" />
     	<property name="job" ref="job02" />
     </bean>
@@ -442,6 +440,7 @@
     	<property name="worker" ref="worker2Worker" />
     	<property name="job" ref="job03" />
     </bean>
+
 
 	<!-- Challenges -->
 
@@ -512,39 +511,57 @@
 	</bean>
 	
 	
+	<!-- Credit Card -->
+	
+	<bean id="creditCard01" class="acme.entities.creditCard.CreditCard">
+		<property name="holder" value="Luis Díaz Gonzalez" />
+		<property name="brand" value="Visa" />
+		<property name="deadline" value="09/23"/>
+		<property name="number" value="5122658736590257" />
+		<property name="cvv" value="332" />
+	</bean>
+	
+	<bean id="creditCard02" class="acme.entities.creditCard.CreditCard">
+		<property name="holder" value="Amanda Rios Ruiz" />
+		<property name="brand" value="MasterCard" />
+		<property name="deadline" value="03/26"/>
+		<property name="number" value="5137984536590257" />
+		<property name="cvv" value="254" />
+	</bean>
+	
+	<bean id="creditCard03" class="acme.entities.creditCard.CreditCard">
+		<property name="holder" value="Amanda Rios Ruiz" />
+		<property name="brand" value="MasterCard" />
+		<property name="deadline" value="03/26"/>
+		<property name="number" value="5137984536590257" />
+		<property name="cvv" value="254" />
+	</bean>
+	
+	
 	<!-- Commercial Banners -->
 
 	<bean id="cbanner01" class="acme.entities.banners.CommercialBanner">
 		<property name="picture" value="http://picture.com" />
 		<property name="slogan" value="Slogaaan!" />
 		<property name="url" value="http://url.com" />
-		<property name="creditcardholder" value="Luis Díaz Gonzalez" />
-		<property name="creditcardbrand" value="Visa" />
-		<property name="creditcarddeadline" value="09/23"/>
-		<property name="creditcardnumber" value="5122658736590257" />
-		<property name="creditcardcvv" value="332" />
+		<property name="creditCard" ref="creditCard01"/>
+		<property name="sponsor" ref="sponsor1Sponsor"/>
 	</bean>
 
 	<bean id="cbanner02" class="acme.entities.banners.CommercialBanner">
 		<property name="picture" value="http://picturepicture.com" />
 		<property name="slogan" value="Slogan!" />
 		<property name="url" value="http://urlurl.com" />
-		<property name="creditcardholder" value="Lucía Martín Veloso" />
-		<property name="creditcardbrand" value="Visa" />
-		<property name="creditcarddeadline" value="03/26"/>
-		<property name="creditcardnumber" value="5527456736590257" />
-		<property name="creditcardcvv" value="2545" />
+		<property name="creditCard" ref="creditCard02"/>
+		<property name="sponsor" ref="sponsor1Sponsor"/>
 	</bean>
 
 	<bean id="cbanner03" class="acme.entities.banners.CommercialBanner">
 		<property name="picture" value="http://pictures.com" />
 		<property name="slogan" value="Slogaaan again!" />
 		<property name="url" value="http://urls.com" />
-		<property name="creditcardholder" value="Amanda Rios Ruiz" />
-		<property name="creditcardbrand" value="MasterCard" />
-		<property name="creditcarddeadline" value="03/26"/>
-		<property name="creditcardnumber" value="5137984536590257" />
-		<property name="creditcardcvv" value="254" />
+		<property name="creditCard" ref="creditCard03"/>
+		<property name="sponsor" ref="sponsor2Sponsor"/>
 	</bean>
 	
 	
@@ -571,6 +588,70 @@
 		<property name="jingle" value="Pripripringle" />
 	</bean>
 
+
+
+	<!-- Sponsors -->
+
+    <bean name="sponsor1UserAccount" class="acme.framework.entities.UserAccount">
+        <property name="username" value="sponsor1" />
+        <property name="password" value="sponsor1" />
+        <property name="enabled" value="true" />
+        <property name="identity">
+            <bean class="acme.datatypes.UserIdentity">
+                <property name="name" value="Sponsor" />
+                <property name="surname" value="One" />
+                <property name="email" value="sponsor1@acme.com" />
+            </bean>
+        </property>
+        <property name="roles">
+            <list>
+                <ref bean="sponsor1Sponsor" />
+                <ref bean="sponsor1Authenticated" />
+            </list>
+        </property>
+    </bean>
+
+    <bean name="sponsor1Sponsor" class="acme.entities.roles.Sponsor">
+        <property name="organisationName" value="organisation1" />
+        <property name="creditCard" ref="creditCard01" />
+        <property name="userAccount" ref="sponsor1UserAccount" />
+    </bean>
+
+    <bean name="sponsor1Authenticated" class="acme.framework.entities.Authenticated">
+        <property name="userAccount" ref="sponsor1UserAccount" />
+    </bean>
+    
+    
+    
+    
+     <bean name="sponsor2UserAccount" class="acme.framework.entities.UserAccount">
+        <property name="username" value="sponsor2" />
+        <property name="password" value="sponsor2" />
+        <property name="enabled" value="true" />
+        <property name="identity">
+            <bean class="acme.datatypes.UserIdentity">
+                <property name="name" value="Sponsor" />
+                <property name="surname" value="Two" />
+                <property name="email" value="sponsor2@acme.com" />
+            </bean>
+        </property>
+        <property name="roles">
+            <list>
+                <ref bean="sponsor2Sponsor" />
+                <ref bean="sponsor2Authenticated" />
+            </list>
+        </property>
+    </bean>
+
+    <bean name="sponsor2Sponsor" class="acme.entities.roles.Sponsor">
+        <property name="organisationName" value="organisation1" />
+        <property name="creditCard" ref="creditCard01" />
+        <property name="userAccount" ref="sponsor2UserAccount" />
+    </bean>
+
+    <bean name="sponsor2Authenticated" class="acme.framework.entities.Authenticated">
+        <property name="userAccount" ref="sponsor2UserAccount" />
+    </bean>
 
 
 

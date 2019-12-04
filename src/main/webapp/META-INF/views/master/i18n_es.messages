@@ -81,6 +81,9 @@ master.menu.administrator.non-commercial-banner = Banners No Comerciales
 master.menu.administrator.listChallenge = Retos
 master.menu.administrator.investorRecord = Registro de Inversores
 
+master.menu.administrator.listDataEmployerWorker = Listar Datos de empleadores y trabajadores
+master.menu.administrator.jobsApplicationsChart = Gráfico de Trabajos y Solicitudes
+
 master.menu.administrator.commercial-banner.create = Crear Banner Comercial
 master.menu.administrator.non-commercial-banner.create = Crear Banner No Comercial
 master.menu.administrator.listAnnouncement.create = Crear Anuncio
@@ -100,6 +103,14 @@ master.menu.employer = Empleador
 
 master.menu.employer.application.list = Solicitudes
 master.menu.employer.job.list = Trabajos
+
+
+# master.menu.sponsor ########################################################
+
+master.menu.sponsor = Sponsor
+
+
+master.menu.sponsor.banner.list = Lista de banners
 
 
 # master.menu.provider ########################################################

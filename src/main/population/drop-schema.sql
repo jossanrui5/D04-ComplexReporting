@@ -15,6 +15,7 @@
        drop 
        foreign key `FKmbjdoxi3o93agxosoate4sxbt`;
 
+
     alter table `audit_records` 
        drop 
        foreign key `FKl6b73crbwej8f95bvp1npqm8p`;
@@ -23,6 +24,7 @@
        drop 
        foreign key `FK25q3rsnsluma5vbn99874y30o`;
 
+
     alter table `auditor` 
        drop 
        foreign key FK_clqcq9lyspxdxcp6o4f3vkelj;
@@ -30,6 +32,12 @@
     alter table `authenticated` 
        drop 
        foreign key FK_h52w0f3wjoi68b63wv9vwon57;
+
+
+    alter table `commercial_banner` 
+       drop 
+       foreign key `FKd0k52g7lcacefcp62kb4p9aor`;
+
 
     alter table `consumer` 
        drop 
@@ -59,6 +67,16 @@
        drop 
        foreign key FK_b1gwnjqm6ggy9yuiqm0o4rlmd;
 
+
+    alter table `sponsor` 
+       drop 
+       foreign key `FK28mvxtnmfjcwiw34vs8ryqkpa`;
+
+    alter table `sponsor` 
+       drop 
+       foreign key FK_20xk0ev32hlg96kqynl6laie2;
+
+
     alter table `user_thread` 
        drop 
        foreign key `FKp4hk9l1gj07tyva3iv5k08e66`;
@@ -79,6 +97,7 @@
 
     drop table if exists `application`;
 
+
     drop table if exists `audit_records`;
 
     drop table if exists `auditor`;
@@ -92,6 +111,10 @@
     drop table if exists `company_records`;
 
     drop table if exists `consumer`;
+
+
+    drop table if exists `credit_card`;
+
 
     drop table if exists `duty`;
 
@@ -124,6 +147,10 @@
     drop table if exists `sanchez_bulletin`;
 
     drop table if exists `spam`;
+
+
+    drop table if exists `sponsor`;
+
 
     drop table if exists `user_account`;
 

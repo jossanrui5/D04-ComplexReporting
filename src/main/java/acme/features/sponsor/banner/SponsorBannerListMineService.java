@@ -1,5 +1,5 @@
 
-package acme.features.administrator.commercialBanner;
+package acme.features.sponsor.banner;
 
 import java.util.Collection;
 
@@ -7,18 +7,19 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entities.banner.CommercialBanner;
+import acme.entities.roles.Sponsor;
 import acme.framework.components.Model;
 import acme.framework.components.Request;
-import acme.framework.entities.Administrator;
+import acme.framework.entities.Principal;
 import acme.framework.services.AbstractListService;
 
 @Service
-public class AdministratorCommercialBannerListService implements AbstractListService<Administrator, CommercialBanner> {
+public class SponsorBannerListMineService implements AbstractListService<Sponsor, CommercialBanner> {
 
 	//Internal state --------------------------------------------------
 
 	@Autowired
-	AdministratorCommercialBannerRepository repository;
+	SponsorBannerRepository repository;
 
 
 	//AbstractListService<Authenticated, Announcement> interface ------
@@ -44,8 +45,10 @@ public class AdministratorCommercialBannerListService implements AbstractListSer
 		assert request != null;
 
 		Collection<CommercialBanner> result;
+		Principal principal;
 
-		result = this.repository.findManyAll();
+		principal = request.getPrincipal();
+		result = this.repository.findManyBySponsorId(principal.getActiveRoleId());
 
 		return result;
 	}

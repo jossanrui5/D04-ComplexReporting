@@ -33,7 +33,7 @@
 	
 	<script type="text/javascript">
         $(document).ready(function() {
-            var submit = `<acme:form-submit code='authenticated.job.form.button.listDuties' method='get' action='/authenticated/duty/list-mine?id=${id}' />`;
+            var submit = `<acme:form-submit code='authenticated.job.form.button.listDuties' method='get' action='/authenticated/duty/list?id=${id}' />`;
             document.getElementById("duties").innerHTML = submit;
         });
     </script>

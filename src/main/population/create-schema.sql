@@ -37,6 +37,7 @@
         primary key (`id`)
     ) engine=InnoDB;
 
+
     create table `audit_records` (
        `id` integer not null,
         `version` integer not null,
@@ -86,14 +87,11 @@
     create table `commercial_banner` (
        `id` integer not null,
         `version` integer not null,
-        `creditcardbrand` varchar(255),
-        `creditcardcvv` varchar(255),
-        `creditcarddeadline` varchar(255),
-        `creditcardholder` varchar(255),
-        `creditcardnumber` varchar(255),
+        `credit_card` blob,
         `picture` varchar(255),
         `slogan` varchar(255),
         `url` varchar(255),
+        `sponsor_id` integer not null,
         primary key (`id`)
     ) engine=InnoDB;
 
@@ -120,6 +118,19 @@
         `sector` varchar(255),
         primary key (`id`)
     ) engine=InnoDB;
+
+
+    create table `credit_card` (
+       `id` integer not null,
+        `version` integer not null,
+        `brand` varchar(255),
+        `cvv` varchar(255),
+        `deadline` varchar(255),
+        `holder` varchar(255),
+        `number` varchar(255),
+        primary key (`id`)
+    ) engine=InnoDB;
+
 
     create table `duty` (
        `id` integer not null,
@@ -292,6 +303,17 @@
         primary key (`id`)
     ) engine=InnoDB;
 
+
+    create table `sponsor` (
+       `id` integer not null,
+        `version` integer not null,
+        `user_account_id` integer,
+        `organisation_name` varchar(255),
+        `credit_card_id` integer,
+        primary key (`id`)
+    ) engine=InnoDB;
+
+
     create table `user_account` (
        `id` integer not null,
         `version` integer not null,
@@ -359,6 +381,7 @@ create index IDX6075l7l7ajup0b22keibg4bil on `request_entity` (`deadline`);
        foreign key (`worker_id`) 
        references `worker` (`id`);
 
+
     alter table `audit_records` 
        add constraint `FKl6b73crbwej8f95bvp1npqm8p` 
        foreign key (`auditor_id`) 
@@ -378,6 +401,13 @@ create index IDX6075l7l7ajup0b22keibg4bil on `request_entity` (`deadline`);
        add constraint FK_h52w0f3wjoi68b63wv9vwon57 
        foreign key (`user_account_id`) 
        references `user_account` (`id`);
+
+
+    alter table `commercial_banner` 
+       add constraint `FKd0k52g7lcacefcp62kb4p9aor` 
+       foreign key (`sponsor_id`) 
+       references `sponsor` (`id`);
+
 
     alter table `consumer` 
        add constraint FK_6cyha9f1wpj0dpbxrrjddrqed 
@@ -413,6 +443,18 @@ create index IDX6075l7l7ajup0b22keibg4bil on `request_entity` (`deadline`);
        add constraint FK_b1gwnjqm6ggy9yuiqm0o4rlmd 
        foreign key (`user_account_id`) 
        references `user_account` (`id`);
+
+
+    alter table `sponsor` 
+       add constraint `FK28mvxtnmfjcwiw34vs8ryqkpa` 
+       foreign key (`credit_card_id`) 
+       references `credit_card` (`id`);
+
+    alter table `sponsor` 
+       add constraint FK_20xk0ev32hlg96kqynl6laie2 
+       foreign key (`user_account_id`) 
+       references `user_account` (`id`);
+
 
     alter table `user_thread` 
        add constraint `FKp4hk9l1gj07tyva3iv5k08e66` 
