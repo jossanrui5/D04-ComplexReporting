@@ -540,7 +540,7 @@
 	
 	<!-- Commercial Banners -->
 
-	<bean id="cbanner01" class="acme.entities.banners.CommercialBanner">
+	<bean id="cbanner01" class="acme.entities.banner.CommercialBanner">
 		<property name="picture" value="http://picture.com" />
 		<property name="slogan" value="Slogaaan!" />
 		<property name="url" value="http://url.com" />
@@ -548,7 +548,7 @@
 		<property name="sponsor" ref="sponsor1Sponsor"/>
 	</bean>
 
-	<bean id="cbanner02" class="acme.entities.banners.CommercialBanner">
+	<bean id="cbanner02" class="acme.entities.banner.CommercialBanner">
 		<property name="picture" value="http://picturepicture.com" />
 		<property name="slogan" value="Slogan!" />
 		<property name="url" value="http://urlurl.com" />
@@ -556,7 +556,7 @@
 		<property name="sponsor" ref="sponsor1Sponsor"/>
 	</bean>
 
-	<bean id="cbanner03" class="acme.entities.banners.CommercialBanner">
+	<bean id="cbanner03" class="acme.entities.banner.CommercialBanner">
 		<property name="picture" value="http://pictures.com" />
 		<property name="slogan" value="Slogaaan again!" />
 		<property name="url" value="http://urls.com" />
@@ -567,21 +567,21 @@
 	
 	<!-- Non Commercial Banners -->
 
-	<bean id="ncbanner01" class="acme.entities.banners.NonCommercialBanner">
+	<bean id="ncbanner01" class="acme.entities.banner.NonCommercialBanner">
 		<property name="picture" value="http://picture.com" />
 		<property name="slogan" value="Slogaaan!" />
 		<property name="url" value="http://url.com" />
 		<property name="jingle" value="Jingle Pringle" />
 	</bean>
 
-	<bean id="ncbanner02" class="acme.entities.banners.NonCommercialBanner">
+	<bean id="ncbanner02" class="acme.entities.banner.NonCommercialBanner">
 		<property name="picture" value="http://picturepicture.com" />
 		<property name="slogan" value="Slogan!" />
 		<property name="url" value="http://urlurl.com" />
 		<property name="jingle" value="Jijijingle" />
 	</bean>
 
-	<bean id="ncbanner03" class="acme.entities.banners.NonCommercialBanner">
+	<bean id="ncbanner03" class="acme.entities.banner.NonCommercialBanner">
 		<property name="picture" value="http://pictures.com" />
 		<property name="slogan" value="Slogaaan again!" />
 		<property name="url" value="http://urls.com" />
