@@ -6,7 +6,7 @@ import java.util.Collection;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
-import acme.entities.banners.NonCommercialBanner;
+import acme.entities.banner.NonCommercialBanner;
 import acme.framework.repositories.AbstractRepository;
 
 @Repository

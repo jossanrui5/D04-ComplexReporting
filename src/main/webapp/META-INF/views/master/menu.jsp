@@ -75,7 +75,9 @@
 			<acme:menu-suboption code="master.menu.administrator.listChallenge" action="/administrator/challenge/list"/>
 			<acme:menu-suboption code="master.menu.administrator.listChallenge.create" action="/administrator/challenge/create"/>
      		<acme:menu-suboption code="master.menu.administrator.companyRecordsChart" action="/administrator/companies-investors-chart/chart"/>
+      		<acme:menu-suboption code="master.menu.administrator.jobsApplicationsChart" action="/administrator/jobs-application-chart/chart"/>
       		<acme:menu-suboption code="master.menu.administrator.listData" action="/administrator/list-data/list-mine"/>
+      		<acme:menu-suboption code="master.menu.administrator.listDataEmployerWorker" action="/administrator/list-data-employer-worker/list-mine"/>
       
 			<acme:menu-separator/>
 			<acme:menu-suboption code="master.menu.administrator.shutdown" action="/master/shutdown"/>
@@ -83,6 +85,10 @@
 		
 		<acme:menu-option code="master.menu.worker" access="hasRole('Worker')">
 			<acme:menu-suboption code="master.menu.worker.application.list" action="/worker/application/list-mine"/>
+		</acme:menu-option>
+		
+		<acme:menu-option code="master.menu.sponsor" access="hasRole('Sponsor')">
+			<acme:menu-suboption code="master.menu.sponsor.banner.list" action="/sponsor/commercial-banner/list-mine"/>
 		</acme:menu-option>
 		
 		<acme:menu-option code="master.menu.employer" access="hasRole('Employer')">

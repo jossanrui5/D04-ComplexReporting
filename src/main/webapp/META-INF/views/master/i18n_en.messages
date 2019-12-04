@@ -73,7 +73,9 @@ master.menu.administrator.companyRecords= Company records
 master.menu.administrator.shutdown = Shut down
 master.menu.administrator.spam = Spam Configuration
 master.menu.administrator.companyRecordsChart = Company and Investor Records Chart
+master.menu.administrator.jobsApplicationsChart = Jobs and Application Chart
 master.menu.administrator.listData = List Data
+master.menu.administrator.listDataEmployerWorker = List Data of Employers and Workers
 master.menu.administrator.commercial-banner = Commecial Banners
 master.menu.administrator.non-commercial-banner = Non-commercial Banners
 master.menu.administrator.listChallenge = Challenge
@@ -97,6 +99,14 @@ master.menu.employer = Empleador
 
 master.menu.employer.application.list = Applications
 master.menu.employer.job.list = Jobs
+
+# master.menu.sponsor ########################################################
+
+master.menu.sponsor = Sponsor
+
+
+master.menu.sponsor.banner.list = List banners
+
 
 # master.menu.provider ########################################################
 

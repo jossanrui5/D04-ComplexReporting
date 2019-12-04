@@ -1,33 +1,32 @@
 
-package acme.features.administrator.commercialBanner;
-
-import java.util.Collection;
+package acme.features.sponsor.banner;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entities.banner.CommercialBanner;
+import acme.entities.roles.Sponsor;
 import acme.framework.components.Model;
 import acme.framework.components.Request;
-import acme.framework.entities.Administrator;
-import acme.framework.services.AbstractListService;
+import acme.framework.services.AbstractShowService;
 
 @Service
-public class AdministratorCommercialBannerListService implements AbstractListService<Administrator, CommercialBanner> {
+public class SponsorBannerShowService implements AbstractShowService<Sponsor, CommercialBanner> {
 
 	//Internal state --------------------------------------------------
 
 	@Autowired
-	AdministratorCommercialBannerRepository repository;
+	private SponsorBannerRepository repository;
 
 
-	//AbstractListService<Authenticated, Announcement> interface ------
+	//AbstractShowService<Administrator, Announcement> interface ------
 
 	@Override
 	public boolean authorise(final Request<CommercialBanner> request) {
 		assert request != null;
 
 		return true;
+
 	}
 
 	@Override
@@ -36,18 +35,21 @@ public class AdministratorCommercialBannerListService implements AbstractListSer
 		assert entity != null;
 		assert model != null;
 
-		request.unbind(entity, model, "picture", "url");
+		request.unbind(entity, model, "picture", "url", "slogan");
 	}
 
 	@Override
-	public Collection<CommercialBanner> findMany(final Request<CommercialBanner> request) {
+	public CommercialBanner findOne(final Request<CommercialBanner> request) {
 		assert request != null;
 
-		Collection<CommercialBanner> result;
+		CommercialBanner result;
+		int id;
 
-		result = this.repository.findManyAll();
+		id = request.getModel().getInteger("id");
+		result = this.repository.findOneBannerById(id);
 
 		return result;
+
 	}
 
 }

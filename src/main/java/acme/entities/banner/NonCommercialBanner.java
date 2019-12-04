@@ -1,9 +1,8 @@
 
-package acme.entities.banners;
+package acme.entities.banner;
 
 import javax.persistence.Entity;
 import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.Pattern;
 
 import org.hibernate.validator.constraints.URL;
 
@@ -14,7 +13,7 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
-public class CommercialBanner extends DomainEntity {
+public class NonCommercialBanner extends DomainEntity {
 
 	//Serialisation identifier ----------------------------
 
@@ -33,21 +32,6 @@ public class CommercialBanner extends DomainEntity {
 	@NotBlank
 	private String				slogan;
 
-	@NotBlank
-	private String				creditcardholder;
-
-	@NotBlank
-	private String				creditcardbrand;
-
-	@NotBlank
-	private String				creditcarddeadline;
-
-	@NotBlank
-	@Pattern(regexp = "5[1-5][0-9]{14}$")
-	private String				creditcardnumber;
-
-	@NotBlank
-	@Pattern(regexp = "^\\d{3,4}$")
-	private String				creditcardcvv;
+	private String				jingle;
 
 }

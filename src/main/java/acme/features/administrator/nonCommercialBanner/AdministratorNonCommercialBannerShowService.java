@@ -4,7 +4,7 @@ package acme.features.administrator.nonCommercialBanner;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import acme.entities.banners.NonCommercialBanner;
+import acme.entities.banner.NonCommercialBanner;
 import acme.framework.components.Model;
 import acme.framework.components.Request;
 import acme.framework.entities.Administrator;
