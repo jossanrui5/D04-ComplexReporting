@@ -18,6 +18,7 @@ import javax.validation.constraints.NotNull;
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.URL;
 
+import acme.entities.auditRecords.AuditRecords;
 import acme.entities.duty.Duty;
 import acme.entities.roles.Employer;
 import acme.framework.datatypes.Money;
@@ -31,39 +32,42 @@ import lombok.Setter;
 
 public class Job extends DomainEntity {
 
-	private static final long		serialVersionUID	= 1L;
+	private static final long				serialVersionUID	= 1L;
 
 	@Column(unique = true)
 	@NotBlank
 	@Length(min = 5, max = 10)
-	private String					reference;
+	private String							reference;
 
 	@NotBlank
-	private String					title;
+	private String							title;
 
 	@NotNull
 	@Temporal(TemporalType.TIMESTAMP)
-	private Date					deadline;
+	private Date							deadline;
 
 	@NotBlank
-	private String					description;
+	private String							description;
 
 	@NotNull
 	@Valid
-	private Money					salary;
+	private Money							salary;
 
 	@URL
-	private String					moreInfo;
+	private String							moreInfo;
 
-	private boolean					finalMode;
+	private boolean							finalMode;
 
 	@OneToMany(mappedBy = "job")
-	private Collection<@Valid Duty>	duties;
+	private Collection<@Valid Duty>			duties;
+
+	@OneToMany(mappedBy = "job")
+	private Collection<@Valid AuditRecords>	auditRecords;
 
 	@NotNull
 	@Valid
 	@ManyToOne(optional = false)
-	private Employer				employer;
+	private Employer						employer;
 
 
 	//Derived attributes ------------------------------------------

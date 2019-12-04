@@ -20,6 +20,7 @@ authenticated.job.form.label.description = Description:
 authenticated.job.form.button.return = Return
 
 authenticated.job.form.button.listDuties = List Duties
+authenticated.job.form.button.listAuditRecords= List Audit Records
 
 
 authenticated.job.list.label.reference = Reference
