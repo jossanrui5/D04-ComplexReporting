@@ -18,8 +18,11 @@ authenticated.job.form.label.reference = Referencia:
 authenticated.job.form.label.description = Descripción:
 authenticated.job.form.button.return = Volver
 authenticated.job.form.button.listDuties = Listar Tareas
+authenticated.job.form.button.listAuditRecords= Listar Registros de Audición
+
 
 authenticated.job.list.label.reference = Referencia
 authenticated.job.list.label.title = Título
 authenticated.job.list.label.deadline = Fecha límite
+authenticated.job.list.label.status = Estado
 

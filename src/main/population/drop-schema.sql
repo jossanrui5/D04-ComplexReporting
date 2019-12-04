@@ -7,7 +7,6 @@
        drop 
        foreign key FK_6lnbc6fo3om54vugoh8icg78m;
 
-
     alter table `application` 
        drop 
        foreign key `FKoa6p4s2oyy7tf80xwc4r04vh6`;
@@ -15,6 +14,14 @@
     alter table `application` 
        drop 
        foreign key `FKmbjdoxi3o93agxosoate4sxbt`;
+
+    alter table `audit_records` 
+       drop 
+       foreign key `FKl6b73crbwej8f95bvp1npqm8p`;
+
+    alter table `audit_records` 
+       drop 
+       foreign key `FK25q3rsnsluma5vbn99874y30o`;
 
     alter table `auditor` 
        drop 
@@ -28,6 +35,10 @@
        drop 
        foreign key FK_6cyha9f1wpj0dpbxrrjddrqed;
 
+    alter table `duty` 
+       drop 
+       foreign key `FKs2uoxh4i5ya8ptyefae60iao1`;
+
     alter table `employer` 
        drop 
        foreign key FK_na4dfobmeuxkwf6p75abmb2tr;
@@ -35,7 +46,6 @@
     alter table `job` 
        drop 
        foreign key `FK3rxjf8uh6fh2u990pe8i2at0e`;
-
 
     alter table `message` 
        drop 
@@ -67,9 +77,9 @@
 
     drop table if exists `anonymous`;
 
-
     drop table if exists `application`;
 
+    drop table if exists `audit_records`;
 
     drop table if exists `auditor`;
 
@@ -82,6 +92,8 @@
     drop table if exists `company_records`;
 
     drop table if exists `consumer`;
+
+    drop table if exists `duty`;
 
     drop table if exists `employer`;
 
